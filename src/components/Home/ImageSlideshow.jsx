@@ -37,23 +37,37 @@ function ImageSlideshow() {
       />
 
       <div className="home-slideshow-overlay">
-        <div>
+
+        <div className="home-slideshow-text">
           <h1>{slides[currentIndex].title}</h1>
-
           <p>{homeData.description}</p>
-
           <p>{homeData.operatingHours}</p>
         </div>
 
         <div className="home-slideshow-actions">
-          <button onClick={previousSlide} aria-label="Previous slide">
+          <button
+            onClick={previousSlide}
+            aria-label="Previous slide"
+          >
             ‹
           </button>
 
-          <button onClick={nextSlide} aria-label="Next slide">
+          <button
+            onClick={nextSlide}
+            aria-label="Next slide"
+          >
             ›
           </button>
         </div>
+
+        <div className="home-slideshow-cta">
+          <a href="#products">VIEW PRODUCTS</a>
+
+          <span>•</span>
+
+          <a href="#order">ORDER NOW</a>
+        </div>
+
       </div>
 
       <div className="home-slideshow-dots">
