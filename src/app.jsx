@@ -1,7 +1,16 @@
+import Header from './components/Header';
+import HomeSection from './components/Home/HomeSection';
+
 function App() {
   return (
-    <h1>Business Portfolio</h1>
-  )
+    <>
+      <Header />
+
+      <main>
+        <HomeSection />
+      </main>
+    </>
+  );
 }
 
-export default App
+export default App;
