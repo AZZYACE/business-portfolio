@@ -25,3 +25,34 @@ export const homeData = {
     },
   ],
 };
+
+export const productsData = [
+  {
+    id: 1,
+    name: 'FOOD 1',
+    price: '00.00',
+    category: 'FOOD',
+    image: '/images/products/food-1.jpg'
+  },
+  {
+    id: 2,
+    name: 'FOOD 2',
+    price: '00.00',
+    category: 'FOOD',
+    image: '/images/products/food-2.jpg'
+  },
+  {
+    id: 3,
+    name: 'DRINK 1',
+    price: '00.00',
+    category: 'DRINKS',
+    image: '/images/products/drink-1.jpg'
+  },
+  {
+    id: 4,
+    name: 'DRINK 2',
+    price: '00.00',
+    category: 'DRINKS',
+    image: '/images/products/drink-2.jpg'
+  }
+];
