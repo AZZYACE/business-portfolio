@@ -57,7 +57,7 @@ button {
 .header-nav {
   display: flex;
   align-items: center;
-  gap: 25px;
+  gap: 15px;
 }
 
 .header-nav a {
@@ -68,6 +68,11 @@ button {
   font-weight: 500;
   padding: 8px 0;
   transition: all 0.2s ease;
+}
+
+.header-nav-dot {
+  color: white;
+  font-size: 14px;
 }
 
 .header-nav a:hover {
