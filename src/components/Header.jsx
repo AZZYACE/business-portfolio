@@ -42,6 +42,13 @@ function Header() {
       <a
         href="#home"
         className={activeSection === 'home' ? 'active' : ''}
+        onClick={(e) => {
+          e.preventDefault();
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth',
+          });
+        }}
       >
         HOME
       </a>
@@ -51,6 +58,14 @@ function Header() {
       <a
         href="#products"
         className={activeSection === 'products' ? 'active' : ''}
+        onClick={(e) => {
+          e.preventDefault();
+
+          document.getElementById('products')?.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start',
+          });
+        }}
       >
         PRODUCTS
       </a>

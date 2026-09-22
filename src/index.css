@@ -103,13 +103,13 @@ main {
 .home-section {
   position: relative;
   width: 100%;
-  min-height: 100vh;
+  min-height: calc(95vh - 5px);
 }
 
 .home-slideshow {
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: calc(95vh - 5px);
   overflow: hidden;
 }
 
@@ -126,10 +126,12 @@ main {
   align-items: flex-end;
   justify-content: space-between;
   padding: 50px 70px 50px 20px;
+
   background: linear-gradient(
     transparent 50%,
     rgba(0, 0, 0, 0.65)
   );
+
   color: white;
 }
 
@@ -159,15 +161,16 @@ main {
 }
 
 .home-slideshow-actions button {
-  width: 50px;
-  height: 50px;
+  width: 42px;
+  height: 42px;
   border: none;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.85);
   color: #333;
-  font-size: 30px;
+  font-size: 28px;
   line-height: 1;
   cursor: pointer;
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -181,9 +184,11 @@ main {
   position: absolute;
   right: 30px;
   bottom: 55px;
+
   display: flex;
   align-items: center;
   gap: 22px;
+
   z-index: 5;
 }
 
@@ -204,28 +209,15 @@ main {
   font-size: 20px;
 }
 
-.home-slideshow-actions button {
-  width: 42px;
-  height: 42px;
-  border: none;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.85);
-  color: #333;
-  font-size: 28px;
-  cursor: pointer;
-}
-
-.home-slideshow-actions button:hover {
-  background: white;
-}
-
 .home-slideshow-dots {
   position: absolute;
   bottom: 22px;
   left: 50%;
   transform: translateX(-50%);
+
   display: flex;
   gap: 8px;
+
   z-index: 5;
 }
 
@@ -233,8 +225,10 @@ main {
   width: 10px;
   height: 10px;
   padding: 0;
+
   border: none;
   border-radius: 50%;
+
   background: rgba(255, 255, 255, 0.6);
   cursor: pointer;
 }
@@ -248,17 +242,24 @@ main {
   left: 0;
   top: 50%;
   transform: translateY(-50%);
+
   width: 55px;
   height: 110px;
+
   border: none;
   border-radius: 0 25px 25px 0;
+
   background: #c59b6d;
   color: white;
+
   cursor: pointer;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   z-index: 20;
+
   transition: all 0.4s ease;
 }
 
@@ -276,12 +277,18 @@ main {
   left: 0;
   top: 50%;
   transform: translateY(-50%);
+
   width: 0;
   height: 400px;
+
   overflow: hidden;
+
   border-radius: 0 200px 200px 0;
+
   opacity: 0;
+
   z-index: 10;
+
   transition:
     width 0.5s ease,
     opacity 0.3s ease;
@@ -296,10 +303,12 @@ main {
   width: 100%;
   height: 100%;
 }
+
 .products-section {
-  min-height: 100vh;
-  padding: 35px 40px 60px;
+  min-height: 92vh;
+  padding: 25px 40px 50px;
   background: white;
+  scroll-margin-top: 65px;
 }
 
 .products-header {
@@ -310,8 +319,10 @@ main {
 .products-header h2 {
   display: inline-block;
   margin: 0;
+
   font-size: 46px;
   font-weight: 700;
+
   border-bottom: 4px solid #b98b5e;
   padding-bottom: 4px;
 }
@@ -330,10 +341,13 @@ main {
 .products-tabs button {
   width: 195px;
   height: 43px;
+
   border: none;
   border-radius: 12px 12px 0 0;
+
   background: #c59b6d;
   color: white;
+
   font-size: 20px;
   cursor: pointer;
 }
@@ -359,8 +373,11 @@ main {
 .product-card {
   width: 315px;
   height: 395px;
+
   padding: 25px;
+
   border-radius: 28px;
+
   background: linear-gradient(
     145deg,
     #d8ae7c,
@@ -371,28 +388,38 @@ main {
 .product-image {
   width: 100%;
   height: 255px;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   border-radius: 28px;
+
   background: white;
   color: #111;
+
   font-size: 28px;
 }
 
 .product-card h3 {
   margin: 10px 0 6px;
+
   color: white;
+
   font-size: 18px;
   font-weight: 500;
 }
 
 .product-price {
   height: 36px;
+
   padding: 6px 10px;
+
   border-radius: 8px;
+
   background: white;
   color: #111;
+
   font-size: 18px;
 }
 
@@ -406,6 +433,7 @@ main {
   border: none;
   background: transparent;
   color: white;
+
   font-size: 17px;
   cursor: pointer;
 }
@@ -417,13 +445,18 @@ main {
 .products-arrow {
   width: 55px;
   height: 105px;
+
   border: 2px solid #c59b6d;
   border-radius: 15px;
+
   background: white;
   color: #c59b6d;
+
   font-size: 60px;
   line-height: 1;
+
   cursor: pointer;
+
   box-shadow: 0 3px 4px rgba(0, 0, 0, 0.25);
 }
 
