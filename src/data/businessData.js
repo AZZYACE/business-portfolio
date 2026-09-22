@@ -29,30 +29,30 @@ export const homeData = {
 export const productsData = [
   {
     id: 1,
-    name: 'FOOD 1',
+    name: 'MEAL SET A',
     price: '00.00',
     category: 'FOOD',
-    image: '/images/products/food-1.jpg'
+    image: '/images/products/FOOD 1 MEAL.jpg'
   },
   {
     id: 2,
-    name: 'FOOD 2',
+    name: 'PASTRY CHOCO FILLED',
     price: '00.00',
     category: 'FOOD',
-    image: '/images/products/food-2.jpg'
+    image: '/images/products/FOOD 2 PASTRY.jpg'
   },
   {
     id: 3,
-    name: 'DRINK 1',
+    name: 'COFFEE',
     price: '00.00',
     category: 'DRINKS',
-    image: '/images/products/drink-1.jpg'
+    image: '/images/products/DRINK 1 COFFEE.jpg'
   },
   {
     id: 4,
-    name: 'DRINK 2',
+    name: 'MILKTEA',
     price: '00.00',
     category: 'DRINKS',
-    image: '/images/products/drink-2.jpg'
+    image: '/images/products/DRINK 2 MILKTEA.jpg'
   }
 ];
