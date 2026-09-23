@@ -39,6 +39,7 @@ function ProductCarousel() {
     <div className="product-carousel-container">
 
       <div className="product-category-tabs">
+
         <button
           className={activeCategory === 'ALL' ? 'active' : ''}
           onClick={() => changeCategory('ALL')}
@@ -59,38 +60,69 @@ function ProductCarousel() {
         >
           DRINKS
         </button>
+
       </div>
+
 
       <div className="product-carousel">
 
         <button
-          className="product-carousel-arrow previous"
+          className="product-carousel-arrow left"
           onClick={previousProducts}
           disabled={currentIndex === 0}
           aria-label="Previous products"
         >
-          ‹
+          <svg
+            viewBox="0 0 40 60"
+            aria-hidden="true"
+          >
+            <path
+              d="M34 5 L7 30 L34 55"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="7"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
         </button>
 
         <div className="product-card-list">
+
           {visibleProducts.map((product) => (
             <ProductCard
               key={product.id}
               product={product}
             />
           ))}
+
         </div>
 
         <button
-          className="product-carousel-arrow next"
+          className="product-carousel-arrow right"
           onClick={nextProducts}
-          disabled={currentIndex >= filteredProducts.length - 4}
+          disabled={
+            currentIndex >= filteredProducts.length - 4
+          }
           aria-label="Next products"
         >
-          ›
+          <svg
+            viewBox="0 0 40 60"
+            aria-hidden="true"
+          >
+            <path
+              d="M6 5 L33 30 L6 55"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="7"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
         </button>
 
       </div>
+
     </div>
   );
 }

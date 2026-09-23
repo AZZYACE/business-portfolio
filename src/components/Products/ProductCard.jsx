@@ -23,7 +23,7 @@ function ProductCard({ product }) {
           className="product-cart-button"
           aria-label={`Add ${product.name} to cart`}
         >
-          🛒
+          ADD TO CART
         </button>
       </div>
     </div>

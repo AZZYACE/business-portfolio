@@ -20,6 +20,7 @@ button {
   top: 0;
   left: 0;
   z-index: 1000;
+
   width: 100%;
   height: 65px;
 
@@ -85,12 +86,16 @@ button {
 
 .header-nav a:hover {
   color: white;
-  text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+
+  text-shadow:
+    0 0 8px rgba(255, 255, 255, 0.8);
 }
 
 .header-nav a.active {
   color: white;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.9);
+
+  text-shadow:
+    0 0 10px rgba(255, 255, 255, 0.9);
 }
 
 .header-nav a.active::after {
@@ -104,7 +109,9 @@ button {
   height: 2px;
 
   background: white;
-  box-shadow: 0 0 8px rgba(255, 255, 255, 0.9);
+
+  box-shadow:
+    0 0 8px rgba(255, 255, 255, 0.9);
 }
 
 main {
@@ -113,12 +120,14 @@ main {
 
 .home-section {
   position: relative;
+
   width: 100%;
   min-height: calc(95vh - 5px);
 }
 
 .home-slideshow {
   position: relative;
+
   width: 100%;
   height: calc(95vh - 5px);
 
@@ -152,11 +161,13 @@ main {
 
 .home-slideshow-overlay h1 {
   margin: 0 0 8px;
+
   font-size: 32px;
 }
 
 .home-slideshow-overlay p {
   margin: 4px 0;
+
   font-size: 14px;
 }
 
@@ -218,6 +229,7 @@ main {
 
 .home-slideshow-cta a {
   color: white;
+
   text-decoration: underline;
   text-underline-offset: 7px;
 
@@ -226,7 +238,8 @@ main {
 }
 
 .home-slideshow-cta a:hover {
-  text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+  text-shadow:
+    0 0 8px rgba(255, 255, 255, 0.8);
 }
 
 .home-slideshow-cta span {
@@ -377,13 +390,16 @@ main {
   gap: 5px;
 
   margin-top: 20px;
+
+  border-bottom: 4px solid #c59b6d;
 }
 
 .product-category-tabs button {
   width: 195px;
   height: 43px;
 
-  border: none;
+  border: 2px solid transparent;
+  border-bottom: none;
 
   border-radius: 12px 12px 0 0;
 
@@ -393,10 +409,46 @@ main {
   font-size: 20px;
 
   cursor: pointer;
+
+  position: relative;
+  z-index: 1;
+
+  margin-bottom: -4px;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.product-category-tabs button:hover {
+  background: #d8ae7c;
+
+  box-shadow:
+    0 0 8px rgba(197, 155, 109, 0.45),
+    0 0 15px rgba(197, 155, 109, 0.25);
 }
 
 .product-category-tabs button.active {
-  background: #b98b5e;
+  background: white;
+
+  color: #9e6f3d;
+
+  border: 2px solid #c59b6d;
+  border-bottom: 4px solid white;
+
+  margin-bottom: -4px;
+
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 0 0 2px rgba(197, 155, 109, 0.18),
+    0 0 10px rgba(197, 155, 109, 0.55),
+    0 0 20px rgba(197, 155, 109, 0.3);
+
+  font-weight: 700;
 }
 
 .products-divider {
@@ -438,13 +490,55 @@ main {
 
   border-radius: 24px;
 
+  box-sizing: border-box;
+
   background: linear-gradient(
     145deg,
-    #d8ae7c,
-    #c59b6d
+    #dfb985 0%,
+    #d4aa76 50%,
+    #c59b6d 100%
   );
 
-  box-sizing: border-box;
+  border: 2px solid #b98b5e;
+
+  box-shadow:
+    0 3px 8px rgba(158, 111, 61, 0.15);
+}
+
+.product-card:nth-child(1) {
+  background: linear-gradient(
+    145deg,
+    #e4bd8b 0%,
+    #d8ad78 50%,
+    #c99c68 100%
+  );
+}
+
+.product-card:nth-child(2) {
+  background: linear-gradient(
+    145deg,
+    #e8c496 0%,
+    #dcb27f 50%,
+    #cda06c 100%
+  );
+}
+
+.product-card:nth-child(3) {
+  background: linear-gradient(
+    145deg,
+    #dfb47d 0%,
+    #d1a16b 50%,
+    #bd8e5d 100%
+  );
+}
+
+.product-card:nth-child(4) {
+  background: linear-gradient(
+    145deg,
+    #e2b984 0%,
+    #d5a873 50%,
+    #c39763 100%
+  );
 }
 
 .product-image {
@@ -512,9 +606,32 @@ main {
   background: transparent;
   color: white;
 
-  font-size: 17px;
+  font-size: 15px;
+  font-weight: 600;
 
   cursor: pointer;
+
+  padding: 5px 0;
+
+  text-shadow:
+    0 0 5px rgba(255, 255, 255, 0.9),
+    0 0 10px rgba(255, 255, 255, 0.65);
+
+  transition:
+    color 0.25s ease,
+    text-shadow 0.25s ease,
+    transform 0.25s ease;
+}
+
+.product-view-button:hover {
+  color: white;
+
+  text-shadow:
+    0 0 5px rgba(255, 255, 255, 1),
+    0 0 12px rgba(255, 255, 255, 0.95),
+    0 0 20px rgba(255, 255, 255, 0.75);
+
+  transform: translateY(-1px);
 }
 
 .product-cart-button {
@@ -523,9 +640,32 @@ main {
   background: transparent;
   color: white;
 
-  font-size: 25px;
+  font-size: 15px;
+  font-weight: 600;
 
   cursor: pointer;
+
+  padding: 5px 0;
+
+  text-shadow:
+    0 0 5px rgba(255, 255, 255, 0.9),
+    0 0 10px rgba(255, 255, 255, 0.65);
+
+  transition:
+    color 0.25s ease,
+    text-shadow 0.25s ease,
+    transform 0.25s ease;
+}
+
+.product-cart-button:hover {
+  color: white;
+
+  text-shadow:
+    0 0 5px rgba(255, 255, 255, 1),
+    0 0 12px rgba(255, 255, 255, 0.95),
+    0 0 20px rgba(255, 255, 255, 0.75);
+
+  transform: translateY(-1px);
 }
 
 .product-carousel-arrow {
@@ -534,27 +674,71 @@ main {
   width: 55px;
   height: 105px;
 
-  border: 2px solid #c59b6d;
+  border: none;
+  background: transparent;
 
-  border-radius: 15px;
-
-  background: white;
   color: #c59b6d;
-
-  font-size: 60px;
-  line-height: 1;
 
   cursor: pointer;
 
-  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  transition:
+    color 0.25s ease,
+    filter 0.25s ease,
+    transform 0.25s ease;
+}
+
+.product-carousel-arrow svg {
+  width: 34px;
+  height: 52px;
+
+  display: block;
+
+  overflow: visible;
+
+  transition:
+    transform 0.25s ease,
+    filter 0.25s ease;
 }
 
 .product-carousel-arrow:hover {
-  background: #c59b6d;
-  color: white;
+  color: #b98b5e;
+
+  filter:
+    drop-shadow(0 0 4px rgba(197, 155, 109, 0.8))
+    drop-shadow(0 0 9px rgba(197, 155, 109, 0.45));
+}
+
+.product-carousel-arrow.left:hover svg {
+  transform: scale(1.08) translateX(-2px);
+}
+
+.product-carousel-arrow.right:hover svg {
+  transform: scale(1.08) translateX(2px);
+}
+
+.product-carousel-arrow:active svg {
+  transform: scale(0.95);
 }
 
 .product-carousel-arrow:disabled {
-  opacity: 0.4;
+  opacity: 0.35;
+
   cursor: default;
+
+  filter: none;
+}
+
+.product-carousel-arrow:disabled svg {
+  transform: none;
+}
+
+.product-carousel-arrow svg path {
+  filter:
+    drop-shadow(0 0 2px rgba(197, 155, 109, 0.35));
 }
