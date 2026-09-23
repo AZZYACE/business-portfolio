@@ -2,7 +2,7 @@ import { useState } from 'react';
 import ProductCard from './ProductCard';
 import { productsData } from '../../data/businessData';
 
-function ProductCarousel() {
+function ProductCarousel({ onAddToCart }) {
   const [activeCategory, setActiveCategory] = useState('ALL');
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -63,7 +63,6 @@ function ProductCarousel() {
 
       </div>
 
-
       <div className="product-carousel">
 
         <button
@@ -93,6 +92,7 @@ function ProductCarousel() {
             <ProductCard
               key={product.id}
               product={product}
+              onAddToCart={onAddToCart}
             />
           ))}
 

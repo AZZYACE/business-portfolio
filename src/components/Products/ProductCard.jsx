@@ -1,6 +1,7 @@
-function ProductCard({ product }) {
+function ProductCard({ product, onAddToCart }) {
   return (
     <div className="product-card">
+
       <div className="product-image">
         <img
           src={product.image}
@@ -15,17 +16,24 @@ function ProductCard({ product }) {
       </div>
 
       <div className="product-card-bottom">
-        <button className="product-view-button">
+
+        <button
+          className="product-view-button"
+          type="button"
+        >
           VIEW
         </button>
 
         <button
           className="product-cart-button"
-          aria-label={`Add ${product.name} to cart`}
+          type="button"
+          onClick={() => onAddToCart(product)}
         >
           ADD TO CART
         </button>
+
       </div>
+
     </div>
   );
 }

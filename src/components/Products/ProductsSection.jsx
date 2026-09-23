@@ -1,6 +1,6 @@
 import ProductCarousel from './ProductCarousel';
 
-function ProductsSection() {
+function ProductsSection({ onAddToCart }) {
   return (
     <section id="products" className="products-section">
       <div className="products-header">
@@ -8,7 +8,9 @@ function ProductsSection() {
         <p>Our Food &amp; Drinks</p>
       </div>
 
-      <ProductCarousel />
+      <ProductCarousel
+        onAddToCart={onAddToCart}
+      />
     </section>
   );
 }
