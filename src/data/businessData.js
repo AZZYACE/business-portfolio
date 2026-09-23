@@ -32,7 +32,7 @@ export const productsData = [
   {
     id: 1,
     name: "MEAL SET A",
-    price: "00.00",
+    price: "120.00",
     category: "FOOD",
     image: "/images/products/FOOD 1 MEAL.jpg",
   },
@@ -40,7 +40,7 @@ export const productsData = [
   {
     id: 2,
     name: "PASTRY CHOCO FILLED",
-    price: "00.00",
+    price: "45.00",
     category: "FOOD",
     image: "/images/products/FOOD 2 PASTRY.jpg",
   },
@@ -48,7 +48,7 @@ export const productsData = [
   {
     id: 3,
     name: "COFFEE",
-    price: "00.00",
+    price: "35.00",
     category: "DRINKS",
     image: "/images/products/DRINK 1 COFFEE.jpg",
   },
@@ -56,7 +56,7 @@ export const productsData = [
   {
     id: 4,
     name: "MILKTEA",
-    price: "00.00",
+    price: "65.00",
     category: "DRINKS",
     image: "/images/products/DRINK 2 MILKTEA.jpg",
   },
