@@ -13,11 +13,13 @@ export const homeData = {
       image: "/images/home/home-1.jpg",
       title: "EAT WELL SPEND WELL",
     },
+
     {
       id: 2,
       image: "/images/home/home-2.jpg",
       title: "GOOD FOOD, GOOD MOMENTS",
     },
+
     {
       id: 3,
       image: "/images/home/home-3.jpg",
@@ -29,30 +31,33 @@ export const homeData = {
 export const productsData = [
   {
     id: 1,
-    name: 'MEAL SET A',
-    price: '00.00',
-    category: 'FOOD',
-    image: '/images/products/FOOD 1 MEAL.jpg'
+    name: "MEAL SET A",
+    price: "00.00",
+    category: "FOOD",
+    image: "/images/products/FOOD 1 MEAL.jpg",
   },
+
   {
     id: 2,
-    name: 'PASTRY CHOCO FILLED',
-    price: '00.00',
-    category: 'FOOD',
-    image: '/images/products/FOOD 2 PASTRY.jpg'
+    name: "PASTRY CHOCO FILLED",
+    price: "00.00",
+    category: "FOOD",
+    image: "/images/products/FOOD 2 PASTRY.jpg",
   },
+
   {
     id: 3,
-    name: 'COFFEE',
-    price: '00.00',
-    category: 'DRINKS',
-    image: '/images/products/DRINK 1 COFFEE.jpg'
+    name: "COFFEE",
+    price: "00.00",
+    category: "DRINKS",
+    image: "/images/products/DRINK 1 COFFEE.jpg",
   },
+
   {
     id: 4,
-    name: 'MILKTEA',
-    price: '00.00',
-    category: 'DRINKS',
-    image: '/images/products/DRINK 2 MILKTEA.jpg'
-  }
+    name: "MILKTEA",
+    price: "00.00",
+    category: "DRINKS",
+    image: "/images/products/DRINK 2 MILKTEA.jpg",
+  },
 ];
