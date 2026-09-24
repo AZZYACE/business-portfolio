@@ -1,8 +1,11 @@
 import { useState } from 'react';
+
 import Header from './components/Header';
 import HomeSection from './components/Home/HomeSection';
 import ProductsSection from './components/Products/ProductsSection';
+import AboutSection from './components/About/AboutSection';
 import OrderSection from './components/Order/OrderSection';
+import Footer from './components/Footer';
 
 function App() {
   const [cartItems, setCartItems] = useState([]);
@@ -74,11 +77,8 @@ function App() {
 
       <main>
         <HomeSection />
-
-        <ProductsSection
-          onAddToCart={addToCart}
-        />
-
+        <ProductsSection onAddToCart={addToCart} />
+        {/*<CateringSection />*/}
         <OrderSection
           cartItems={cartItems}
           onIncrease={increaseQuantity}
@@ -86,7 +86,11 @@ function App() {
           onRemove={removeFromCart}
           onClearCart={() => setCartItems([])}
         />
+        <AboutSection />
+        {/*<ContactForm />*/}
       </main>
+
+      <Footer />
     </>
   );
 }
