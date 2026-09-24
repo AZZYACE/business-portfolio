@@ -1,5 +1,4 @@
 import { useState } from 'react';
-
 import Header from './components/Header';
 import HomeSection from './components/Home/HomeSection';
 import ProductsSection from './components/Products/ProductsSection';
