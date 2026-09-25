@@ -1,7 +1,9 @@
+
 import { useState } from 'react';
 import Header from './components/Header';
 import HomeSection from './components/Home/HomeSection';
 import ProductsSection from './components/Products/ProductsSection';
+import CateringSection from './components/Catering/CateringSection';
 import OrderSection from './components/Order/OrderSection';
 
 function App() {
@@ -68,6 +70,10 @@ function App() {
     );
   };
 
+  const bookCatering = (catering) => {
+    console.log('Selected catering:', catering);
+  };
+
   return (
     <>
       <Header />
@@ -77,6 +83,10 @@ function App() {
 
         <ProductsSection
           onAddToCart={addToCart}
+        />
+
+        <CateringSection
+          onBookNow={bookCatering}
         />
 
         <OrderSection

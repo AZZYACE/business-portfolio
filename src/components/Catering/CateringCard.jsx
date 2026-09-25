@@ -1,34 +1,44 @@
+
 function CateringCard({ catering, onBookNow }) {
   return (
-    <div className="catering-card">
+    <div className="w-full overflow-hidden rounded-xl border-2 border-[#8B4513] bg-white shadow-md">
 
-      <div className="catering-image">
+      <div className="h-48 w-full overflow-hidden">
         <img
           src={catering.image}
           alt={catering.name}
+          className="h-full w-full object-cover"
         />
       </div>
 
-      <h3>{catering.name}</h3>
+      <div className="p-4">
 
-      <p>{catering.description}</p>
+        <h3 className="mb-2 text-center text-lg font-bold">
+          {catering.name}
+        </h3>
 
-      <div className="catering-card-bottom">
+        <p className="mb-4 text-center leading-6">
+          {catering.description}
+        </p>
 
-        <button
-          className="catering-view-button"
-          type="button"
-        >
-          VIEW
-        </button>
+        <div className="flex gap-2">
 
-        <button
-          className="catering-book-button"
-          type="button"
-          onClick={() => onBookNow(catering)}
-        >
-          BOOK NOW
-        </button>
+          <button
+            className="flex-1 rounded-md border border-[#8B4513] px-3 py-2"
+            type="button"
+          >
+            VIEW
+          </button>
+
+          <button
+            className="flex-1 rounded-md bg-[#8B4513] px-3 py-2 text-white"
+            type="button"
+            onClick={() => onBookNow(catering)}
+          >
+            BOOK NOW
+          </button>
+
+        </div>
 
       </div>
 
