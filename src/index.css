@@ -714,6 +714,333 @@ main {
     drop-shadow(0 0 2px rgba(197, 155, 109, 0.35));
 }
 
+
+.catering-section {
+  min-height: 92vh;
+
+  padding: 25px 40px 50px;
+
+  background: linear-gradient(
+    to bottom,
+    #9e6f3d 0%,
+    #b98b5e 35%,
+    #d8c0a3 65%,
+    #ffffff 100%
+  );
+
+  color: white;
+
+  scroll-margin-top: 65px;
+}
+
+.catering-header {
+  text-align: center;
+}
+
+.catering-header h2 {
+  display: inline-block;
+
+  margin: 0;
+
+  font-size: 46px;
+  font-weight: 700;
+
+  color: #ffffff;
+
+  border-bottom: 4px solid #ffffff;
+
+  padding-bottom: 4px;
+}
+
+.catering-header p {
+  margin: 10px 0 20px;
+
+  font-size: 24px;
+
+  color: #ffffff;
+}
+
+.catering-carousel-container {
+  width: 100%;
+}
+
+.catering-carousel {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 30px;
+
+  margin-top: 30px;
+}
+
+.catering-card-list {
+  display: flex;
+
+  gap: 25px;
+
+  overflow: hidden;
+}
+
+.catering-card {
+  flex: 0 0 270px;
+
+  width: 270px;
+  height: 400px;
+
+  padding: 18px;
+
+  border-radius: 24px;
+
+  box-sizing: border-box;
+
+  background: linear-gradient(
+    145deg,
+    #d8ae7c 0%,
+    #cfa16f 50%,
+    #c59b6d 100%
+  );
+
+  border: 2px solid #b98b5e;
+
+  box-shadow:
+    0 3px 8px rgba(158, 111, 61, 0.15);
+
+  display: flex;
+  flex-direction: column;
+}
+
+.catering-image {
+  width: 100%;
+  height: 210px;
+
+  flex-shrink: 0;
+
+  overflow: hidden;
+
+  border-radius: 18px;
+
+  background: white;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border: 2px solid #b98b5e;
+
+  box-sizing: border-box;
+
+  box-shadow:
+    0 2px 5px rgba(0, 0, 0, 0.12);
+}
+
+.catering-image img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  border-radius: 16px;
+}
+
+.catering-card h3 {
+  margin: 12px 0 8px;
+
+  height: 42px;
+  min-height: 42px;
+
+  color: white;
+
+  font-size: 18px;
+  font-weight: 500;
+
+  line-height: 1.2;
+
+  display: flex;
+  align-items: flex-start;
+}
+
+.catering-description {
+  width: 100%;
+  height: 58px;
+  min-height: 58px;
+
+  padding: 7px 10px;
+
+  box-sizing: border-box;
+
+  border-radius: 8px;
+
+  background: white;
+
+  color: #111;
+
+  font-size: 12px;
+
+  line-height: 1.35;
+
+  overflow: hidden;
+}
+
+.catering-card-bottom {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  margin-top: auto;
+  padding-top: 12px;
+}
+
+.catering-carousel-arrow {
+  flex: 0 0 auto;
+
+  width: 55px;
+  height: 105px;
+
+  border: none;
+  background: transparent;
+
+  color: white;
+
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  transition:
+    color 0.25s ease,
+    filter 0.25s ease,
+    transform 0.25s ease;
+}
+
+.catering-carousel-arrow svg {
+  width: 34px;
+  height: 52px;
+
+  display: block;
+
+  overflow: visible;
+
+  transition:
+    transform 0.25s ease,
+    filter 0.25s ease;
+}
+
+.catering-carousel-arrow:hover {
+  color: white;
+
+  filter:
+    drop-shadow(0 0 4px rgba(255, 255, 255, 0.9))
+    drop-shadow(0 0 9px rgba(255, 255, 255, 0.55));
+}
+
+.catering-carousel-arrow.left:hover svg {
+  transform: scale(1.08) translateX(-2px);
+}
+
+.catering-carousel-arrow.right:hover svg {
+  transform: scale(1.08) translateX(2px);
+}
+
+.catering-carousel-arrow:active svg {
+  transform: scale(0.95);
+}
+
+.catering-carousel-arrow:disabled {
+  opacity: 0.35;
+
+  cursor: default;
+
+  filter: none;
+}
+
+.catering-carousel-arrow:disabled svg {
+  transform: none;
+}
+
+.catering-carousel-arrow svg path {
+  filter:
+    drop-shadow(0 0 2px rgba(255, 255, 255, 0.4));
+}
+
+.catering-view-button {
+  border: none;
+
+  background: transparent;
+
+  color: white;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  padding: 5px 0;
+
+  text-shadow:
+    0 0 5px rgba(255, 255, 255, 0.9),
+    0 0 10px rgba(255, 255, 255, 0.65);
+
+  transition:
+    color 0.25s ease,
+    text-shadow 0.25s ease,
+    transform 0.25s ease;
+}
+
+.catering-view-button:hover {
+  color: white;
+
+  text-shadow:
+    0 0 5px rgba(255, 255, 255, 1),
+    0 0 12px rgba(255, 255, 255, 0.95),
+    0 0 20px rgba(255, 255, 255, 0.75);
+
+  transform: translateY(-1px);
+}
+
+.catering-book-button {
+  border: none;
+
+  background: transparent;
+
+  color: white;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  padding: 5px 0;
+
+  text-shadow:
+    0 0 5px rgba(255, 255, 255, 0.9),
+    0 0 10px rgba(255, 255, 255, 0.65);
+
+  transition:
+    color 0.25s ease,
+    text-shadow 0.25s ease,
+    transform 0.25s ease;
+}
+
+.catering-book-button:hover {
+  color: white;
+
+  text-shadow:
+    0 0 5px rgba(255, 255, 255, 1),
+    0 0 12px rgba(255, 255, 255, 0.95),
+    0 0 20px rgba(255, 255, 255, 0.75);
+
+  transform: translateY(-1px);
+}
+
 .order-section {
   min-height: 92vh;
   padding: 25px 40px 50px;
@@ -2383,6 +2710,228 @@ main {
   .feature-card p {
     font-size: 15px;
   }
+}
+
+@media (max-width: 768px) {
+
+  /* PART 1 — SECTION */
+
+  .catering-section {
+    min-height: auto;
+    padding: 25px 20px 40px;
+    scroll-margin-top: 65px;
+  }
+
+
+  /* PART 2 — HEADER */
+
+  .catering-header h2 {
+    font-size: 36px;
+    border-bottom-width: 3px;
+  }
+
+  .catering-header p {
+    margin: 8px 0 18px;
+    font-size: 20px;
+  }
+
+
+  /* PART 3 — CAROUSEL */
+
+  .catering-carousel {
+    gap: 10px;
+    margin-top: 20px;
+  }
+
+  .catering-carousel-container {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .catering-card-list {
+    gap: 15px;
+    flex: 1;
+    min-width: 0;
+  }
+
+
+  /* PART 4 — CARDS */
+
+  .catering-card {
+    flex: 0 0 240px;
+
+    width: 240px;
+    height: 370px;
+
+    padding: 15px;
+
+    border-radius: 20px;
+  }
+
+  .catering-image {
+    height: 190px;
+
+    border-radius: 16px;
+  }
+
+  .catering-image img {
+    border-radius: 14px;
+  }
+
+  .catering-card h3 {
+  margin: 10px 0 7px;
+
+  height: 40px;
+  min-height: 40px;
+
+  font-size: 17px;
+  line-height: 1.2;
+}
+
+.catering-description {
+  height: 55px;
+  min-height: 55px;
+
+  padding: 6px 9px;
+
+  font-size: 11px;
+  line-height: 1.35;
+
+  border-radius: 8px;
+}
+
+.catering-card-bottom {
+  margin-top: auto;
+  padding-top: 10px;
+}
+
+.catering-view-button,
+.catering-book-button {
+  font-size: 13px;
+  padding: 4px 0;
+}
+
+.catering-carousel-arrow {
+  width: 40px;
+  height: 85px;
+}
+
+.catering-carousel-arrow svg {
+  width: 27px;
+  height: 43px;
+}
+
+@media (max-width: 480px) {
+
+  .catering-section {
+    padding: 20px 15px 35px;
+  }
+
+  .catering-header h2 {
+    font-size: 32px;
+  }
+
+  .catering-header p {
+    font-size: 18px;
+    margin: 7px 0 15px;
+  }
+
+  .catering-carousel {
+    gap: 5px;
+    margin-top: 15px;
+  }
+
+  .catering-card-list {
+    gap: 10px;
+  }
+
+  .catering-card {
+    flex: 0 0 220px;
+    width: 220px;
+    height: 355px;
+    padding: 14px;
+  }
+
+  .catering-image {
+    height: 180px;
+  }
+
+  .catering-card h3 {
+    font-size: 16px;
+  }
+
+  .catering-description {
+    font-size: 11px;
+  }
+
+  .catering-carousel-arrow {
+    width: 32px;
+    height: 75px;
+  }
+
+  .catering-carousel-arrow svg {
+    width: 23px;
+    height: 38px;
+  }
+
+  .catering-view-button,
+  .catering-book-button {
+    font-size: 12px;
+  }
+
+  .catering-carousel {
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+  .catering-carousel-container {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    justify-content: center;
+  }
+
+  .catering-card-list {
+    width: 100%;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+    .catering-image {
+    width: 100%;
+    height: 175px;
+    flex-shrink: 0;
+    overflow: hidden;
+  }
+
+  .catering-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .catering-card h3 {
+    margin: 9px 0 6px;
+
+    height: 38px;
+    min-height: 38px;
+
+    font-size: 15px;
+    line-height: 1.2;
+  }
+
+  .catering-description {
+    height: 52px;
+    min-height: 52px;
+
+    padding: 6px 8px;
+
+    font-size: 10.5px;
+    line-height: 1.35;
+  }
+}
+
 }
 
 @media (max-width: 1000px) {
