@@ -2,8 +2,9 @@ import { useState } from 'react';
 import Header from './components/Header';
 import HomeSection from './components/Home/HomeSection';
 import ProductsSection from './components/Products/ProductsSection';
-import AboutSection from './components/About/AboutSection';
 import OrderSection from './components/Order/OrderSection';
+import AboutSection from './components/About/AboutSection';
+import ContactForm from './components/ContactForm';
 import Footer from './components/Footer';
 
 function App() {
@@ -86,7 +87,7 @@ function App() {
           onClearCart={() => setCartItems([])}
         />
         <AboutSection />
-        {/*<ContactForm />*/}
+        <ContactForm />
       </main>
 
       <Footer />

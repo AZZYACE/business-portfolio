@@ -65,11 +65,13 @@ function AboutSection() {
   return (
     <section id="about" className="about-section">
 
-      <div className="about-header">
-        <h2>ABOUT US</h2>
-        <div className="about-title-line"></div>
-        <p>Established 2026</p>
-      </div>
+    <div className="about-header">
+      <h2>ABOUT US</h2>
+      <div className="about-title-line"></div>
+      <p>Established 2026</p>
+    </div>
+
+    <div className="about-divider"></div>
 
       <BusinessProfile data={businessProfile} />
       <MissionVision data={missionVision} />
