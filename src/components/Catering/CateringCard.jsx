@@ -1,48 +1,39 @@
-import { useState } from 'react';
+function CateringCard({ catering, onBookNow }) {
+  return (
+    <div className="catering-card">
 
-function CateringCard({ item, onBook }) {
-    const [expanded, setExpanded] = useState(false);
+      <div className="catering-image">
+        <img
+          src={catering.image}
+          alt={catering.name}
+        />
+      </div>
 
-    return (
-        <article className="cat-card">
-            <div className="cat-card__image">
-                <span className="cat-card__code">{item.code}</span>
-            </div>
-            <h3 className="cat-card__title">{item.title}</h3>
+      <h3>{catering.name}</h3>
 
-            <div className="cat-card__body">
-                <p className={expanded ? 'cat-card__text' : 'cat-card__text cat-card__text--clamped'}>{item.description}</p>
+      <p>{catering.description}</p>
 
-                {expanded && (
-                    <ul className="cat-card__inclusions">
-                        {item.inclusions.map((inclusion) => (
-                            <li key={inclusion}>{inclusion}</li>
-                        ))}
-                    </ul>
-                )}
+      <div className="catering-card-bottom">
 
-                <dl className="cat-card__meta">
-                    <div>
-                        <dt>Guests</dt>
-                        <dd>{item.guests}</dd>
-                    </div>
-                    <div>
-                        <dt>Rate</dt>
-                        <dd>{item.price}</dd>
-                    </div>
-                </dl>
-            </div>
+        <button
+          className="catering-view-button"
+          type="button"
+        >
+          VIEW
+        </button>
 
-            <div className="cat-card__actions">
-                <button type="button" className="link-btn" onClick={() => setExpanded((open) => !open)}>
-                    {expanded ? 'SHOW LESS' : 'LEARN MORE'}
-                </button>
-                <button type="button" className="link-btn link-btn--accent" onClick={() => onBook(item)}>
-                    BOOK NOW
-                </button>
-            </div>
-        </article>
-    );
+        <button
+          className="catering-book-button"
+          type="button"
+          onClick={() => onBookNow(catering)}
+        >
+          BOOK NOW
+        </button>
+
+      </div>
+
+    </div>
+  );
 }
 
 export default CateringCard;
