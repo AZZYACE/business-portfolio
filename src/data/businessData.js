@@ -1,5 +1,5 @@
 export const homeData = {
-  businessName: "SPACE CAFECARY",
+  businessName: "SHACE CAFECARY",
 
   tagline: "EAT WELL SPEND WELL",
 
