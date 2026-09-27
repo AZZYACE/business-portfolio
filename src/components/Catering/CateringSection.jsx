@@ -57,7 +57,12 @@ function CateringSection() {
     event.preventDefault();
 
     if (!selectedCatering) {
-      alert('Please select a catering service.');
+      setNotification('Please select a catering service.');
+
+      setTimeout(() => {
+        setNotification('');
+      }, 3000);
+
       return;
     }
 
@@ -69,25 +74,36 @@ function CateringSection() {
       !eventDetails.guests ||
       !eventDetails.venue
     ) {
-      alert(
+      setNotification(
         'Please complete all required event information.'
       );
+
+      setTimeout(() => {
+        setNotification('');
+      }, 3000);
+
       return;
     }
 
-    alert(
-      `Catering request submitted!\n\n` +
-      `Service: ${selectedCatering.name}\n` +
-      `Rate: ₱${Number(
-        selectedCatering.pricePerGuest
-      ).toFixed(2)} per guest\n` +
-      `Date: ${eventDetails.eventDate}\n` +
-      `Guests: ${eventDetails.guests}\n` +
-      `Estimated Total: ₱${estimatedTotal.toFixed(
-        2
-      )}\n\n` +
-      `Thank you, ${eventDetails.name}!`
+    if (eventDetails.eventDate < today) {
+      setNotification(
+        'Please select today or a future date for your event.'
+      );
+
+      setTimeout(() => {
+        setNotification('');
+      }, 3000);
+
+      return;
+    }
+
+    setNotification(
+      'Your catering booking has been submitted successfully!'
     );
+
+    setTimeout(() => {
+      setNotification('');
+    }, 4000);
 
     setSelectedCatering(null);
 
@@ -114,7 +130,9 @@ function CateringSection() {
           <div className="catering-notification-content">
 
             <strong>
-              Catering Selected!
+              {notification.includes('submitted')
+                ? 'Booking Submitted!'
+                : 'Catering Selected!'}
             </strong>
 
             <p>
