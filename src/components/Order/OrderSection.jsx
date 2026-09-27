@@ -12,7 +12,12 @@ function OrderSection({
     contact: '',
     email: '',
     orderType: 'pickup',
+    paymentMethod: 'cash',
     address: '',
+    cardNumber: '',
+    cardholderName: '',
+    expiryDate: '',
+    cvv: '',
     notes: '',
   });
 
@@ -52,6 +57,31 @@ function OrderSection({
     }, 3000);
   };
 
+  const getPaymentMessage = () => {
+    if (
+      customer.orderType === 'delivery' &&
+      customer.paymentMethod === 'card'
+    ) {
+      return 'Please pay by card to the delivery man upon delivery.';
+    }
+
+    if (
+      customer.orderType === 'delivery' &&
+      customer.paymentMethod === 'cash'
+    ) {
+      return 'Please prepare cash payment for the delivery man upon delivery.';
+    }
+
+    if (
+      customer.orderType === 'pickup' &&
+      customer.paymentMethod === 'card'
+    ) {
+      return 'Please pay by card when you pick up your order at the physical shop.';
+    }
+
+    return 'Please pay in cash when you pick up your order at the physical shop.';
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -77,11 +107,28 @@ function OrderSection({
       return;
     }
 
-    alert(
-      `Order confirmed!\n\nTotal: ₱ ${total.toFixed(
+    if (
+      customer.paymentMethod === 'card' &&
+      (
+        !customer.cardNumber ||
+        !customer.cardholderName ||
+        !customer.expiryDate ||
+        !customer.cvv
+      )
+    ) {
+      alert('Please complete all card payment information.');
+      return;
+    }
+
+    setNotification(
+      `Order confirmed! Total: ₱${total.toFixed(
         2
-      )}\n\nThank you, ${customer.name}!`
+      )}. ${getPaymentMessage()}`
     );
+
+    setTimeout(() => {
+      setNotification('');
+    }, 5000);
 
     onClearCart();
 
@@ -90,7 +137,12 @@ function OrderSection({
       contact: '',
       email: '',
       orderType: 'pickup',
+      paymentMethod: 'cash',
       address: '',
+      cardNumber: '',
+      cardholderName: '',
+      expiryDate: '',
+      cvv: '',
       notes: '',
     });
   };
@@ -113,7 +165,7 @@ function OrderSection({
           </span>
 
           <div>
-            <strong>Product Removed!</strong>
+            <strong>Order Confirmed!</strong>
 
             <p>{notification}</p>
           </div>
@@ -360,17 +412,112 @@ function OrderSection({
 
               </div>
 
-              <label>
-                Delivery Address
+              {customer.orderType === 'delivery' && (
+                <label>
+                  Delivery Address
 
-                <input
-                  type="text"
-                  name="address"
-                  value={customer.address}
+                  <input
+                    type="text"
+                    name="address"
+                    value={customer.address}
+                    onChange={handleChange}
+                    placeholder="Unit/Bldg/House No., Street, Barangay, City, Province"
+                  />
+                </label>
+              )}
+
+              <div className="order-payment">
+
+                <span>
+                  How would you like to pay?
+                </span>
+
+                <select
+                  name="paymentMethod"
+                  value={customer.paymentMethod}
                   onChange={handleChange}
-                  placeholder="Unit/Bldg/House No., Street, Barangay, City, Province"
-                />
-              </label>
+                >
+                  <option value="card">
+                    Card
+                  </option>
+
+                  <option value="cash">
+                    Cash
+                  </option>
+                </select>
+
+              </div>
+
+              {customer.paymentMethod === 'card' && (
+                <div className="order-card-payment">
+
+                  <label>
+                    Card Number
+
+                    <input
+                      type="text"
+                      name="cardNumber"
+                      value={customer.cardNumber}
+                      onChange={handleChange}
+                      placeholder="1234 5678 9012 3456"
+                      maxLength="19"
+                    />
+                  </label>
+
+                  <label>
+                    Cardholder Name
+
+                    <input
+                      type="text"
+                      name="cardholderName"
+                      value={customer.cardholderName}
+                      onChange={handleChange}
+                      placeholder="Name on card"
+                    />
+                  </label>
+
+                  <div className="order-card-row">
+
+                    <label>
+                      Expiry Date
+
+                      <input
+                        type="month"
+                        name="expiryDate"
+                        value={customer.expiryDate}
+                        onChange={handleChange}
+                      />
+                    </label>
+
+                    <label>
+                      CVV
+
+                      <input
+                        type="text"
+                        name="cvv"
+                        value={customer.cvv}
+                        onChange={handleChange}
+                        placeholder="123"
+                        maxLength="4"
+                      />
+                    </label>
+
+                  </div>
+
+                </div>
+              )}
+
+              <div className="order-payment-info">
+
+                <strong>
+                  Payment Information
+                </strong>
+
+                <p>
+                  {getPaymentMessage()}
+                </p>
+
+              </div>
 
               <label>
                 Order Notes/Requests
@@ -379,6 +526,7 @@ function OrderSection({
                   name="notes"
                   value={customer.notes}
                   onChange={handleChange}
+                  placeholder="Tell us about any special requests..."
                 ></textarea>
               </label>
 
