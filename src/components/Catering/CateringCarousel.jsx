@@ -1,33 +1,60 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import CateringCard from './CateringCard';
 import { cateringData } from '../../data/businessData';
 
 function CateringCarousel({ onBookNow }) {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [visibleCount, setVisibleCount] = useState(
+    window.innerWidth <= 768 ? 1 : 4
+  );
+
+  useEffect(() => {
+    const handleResize = () => {
+      const newVisibleCount = window.innerWidth <= 768 ? 1 : 4;
+
+      setVisibleCount(newVisibleCount);
+      setCurrentIndex((currentIndex) =>
+        Math.min(
+          currentIndex,
+          Math.max(cateringData.length - newVisibleCount, 0)
+        )
+      );
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  const maxIndex = Math.max(
+    cateringData.length - visibleCount,
+    0
+  );
 
   const nextCatering = () => {
-    if (currentIndex < cateringData.length - 4) {
-      setCurrentIndex(currentIndex + 1);
-    }
+    setCurrentIndex((currentIndex) =>
+      Math.min(currentIndex + 1, maxIndex)
+    );
   };
 
   const previousCatering = () => {
-    if (currentIndex > 0) {
-      setCurrentIndex(currentIndex - 1);
-    }
+    setCurrentIndex((currentIndex) =>
+      Math.max(currentIndex - 1, 0)
+    );
   };
 
   const visibleCatering = cateringData.slice(
     currentIndex,
-    currentIndex + 4
+    currentIndex + visibleCount
   );
 
   return (
     <div className="catering-carousel-container">
-
       <div className="catering-carousel">
-
         <button
+          type="button"
           className="catering-carousel-arrow left"
           onClick={previousCatering}
           disabled={currentIndex === 0}
@@ -49,7 +76,6 @@ function CateringCarousel({ onBookNow }) {
         </button>
 
         <div className="catering-card-list">
-
           {visibleCatering.map((catering) => (
             <CateringCard
               key={catering.id}
@@ -57,15 +83,13 @@ function CateringCarousel({ onBookNow }) {
               onBookNow={onBookNow}
             />
           ))}
-
         </div>
 
         <button
+          type="button"
           className="catering-carousel-arrow right"
           onClick={nextCatering}
-          disabled={
-            currentIndex >= cateringData.length - 4
-          }
+          disabled={currentIndex >= maxIndex}
           aria-label="Next catering services"
         >
           <svg
@@ -82,9 +106,7 @@ function CateringCarousel({ onBookNow }) {
             />
           </svg>
         </button>
-
       </div>
-
     </div>
   );
 }

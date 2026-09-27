@@ -197,7 +197,6 @@ button {
   background: rgba(255, 255, 255, 0.08);
 }
 
-/* Mobile */
 @media (max-width: 768px) {
   .site-header {
     height: 60px;
@@ -252,7 +251,6 @@ button {
   }
 }
 
-/* Smaller phones */
 @media (max-width: 480px) {
   .header-main {
     padding: 0 10px;
@@ -599,10 +597,6 @@ main {
     height: 28px;
   }
 
-  .location-map.open {
-    width: 85vw;
-    height: 300px;
-  }
 }
 
 @media (max-width: 480px) {
@@ -652,10 +646,6 @@ main {
     height: 25px;
   }
 
-  .location-map.open {
-    width: 90vw;
-    height: 260px;
-  }
 }
 
 .products-section {
@@ -1511,7 +1501,6 @@ main {
   transform: translateY(-1px);
 }
 
-/* Mobile */
 @media (max-width: 768px) {
   .catering-section {
     min-height: auto;
@@ -3118,7 +3107,6 @@ main {
   line-height: 1.5;
 }
 
-/* Mobile */
 @media (max-width: 768px) {
   .contact-section {
     min-height: auto;
@@ -3251,7 +3239,6 @@ main {
   }
 }
 
-/* Smaller phones */
 @media (max-width: 480px) {
   .contact-section {
     padding: 22px 10px 40px;
@@ -3396,29 +3383,6 @@ main {
   }
 }
 
-.site-header {
-  width: 100%;
-  box-sizing: border-box;
-}
-
-.header-main {
-  width: 100%;
-  height: 65px;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  align-items: center;
-  justify-content: space-between;
-  box-sizing: border-box;
-}
-
-.header-brand {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  flex-shrink: 0;
-}
-
 .header-nav {
   display: flex;
   flex-direction: row;
@@ -3431,217 +3395,6 @@ main {
 
 .header-mobile-actions {
   display: none;
-}
-
-@media (max-width: 768px) {
-
-  .catering-section {
-    min-height: auto;
-    padding: 25px 20px 40px;
-    scroll-margin-top: 65px;
-  }
-
-  .catering-header h2 {
-    font-size: 36px;
-    border-bottom-width: 3px;
-  }
-
-  .catering-header p {
-    margin: 8px 0 18px;
-    font-size: 20px;
-  }
-
-  .catering-carousel {
-    gap: 10px;
-    margin-top: 20px;
-  }
-
-  .catering-carousel-container {
-    width: 100%;
-    overflow: hidden;
-  }
-
-  .catering-card-list {
-    gap: 15px;
-    flex: 1;
-    min-width: 0;
-  }
-
-  .catering-card {
-    flex: 0 0 240px;
-
-    width: 240px;
-    height: 370px;
-
-    padding: 15px;
-
-    border-radius: 20px;
-  }
-
-  .catering-image {
-    height: 190px;
-
-    border-radius: 16px;
-  }
-
-  .catering-image img {
-    border-radius: 14px;
-  }
-
-  .catering-card h3 {
-  margin: 10px 0 7px;
-
-  height: 40px;
-  min-height: 40px;
-
-  font-size: 17px;
-  line-height: 1.2;
-}
-
-.catering-description {
-  height: 55px;
-  min-height: 55px;
-
-  padding: 6px 9px;
-
-  font-size: 11px;
-  line-height: 1.35;
-
-  border-radius: 8px;
-}
-
-.catering-card-bottom {
-  margin-top: auto;
-  padding-top: 10px;
-}
-
-.catering-view-button,
-.catering-book-button {
-  font-size: 13px;
-  padding: 4px 0;
-}
-
-.catering-carousel-arrow {
-  width: 40px;
-  height: 85px;
-}
-
-.catering-carousel-arrow svg {
-  width: 27px;
-  height: 43px;
-}
-
-@media (max-width: 480px) {
-
-  .catering-section {
-    padding: 20px 15px 35px;
-  }
-
-  .catering-header h2 {
-    font-size: 32px;
-  }
-
-  .catering-header p {
-    font-size: 18px;
-    margin: 7px 0 15px;
-  }
-
-  .catering-carousel {
-    gap: 5px;
-    margin-top: 15px;
-  }
-
-  .catering-card-list {
-    gap: 10px;
-  }
-
-  .catering-card {
-    flex: 0 0 220px;
-    width: 220px;
-    height: 355px;
-    padding: 14px;
-  }
-
-  .catering-image {
-    height: 180px;
-  }
-
-  .catering-card h3 {
-    font-size: 16px;
-  }
-
-  .catering-description {
-    font-size: 11px;
-  }
-
-  .catering-carousel-arrow {
-    width: 32px;
-    height: 75px;
-  }
-
-  .catering-carousel-arrow svg {
-    width: 23px;
-    height: 38px;
-  }
-
-  .catering-view-button,
-  .catering-book-button {
-    font-size: 12px;
-  }
-
-  .catering-carousel {
-  width: 100%;
-  justify-content: center;
-  align-items: center;
-}
-
-  .catering-carousel-container {
-    flex: 1;
-    min-width: 0;
-    display: flex;
-    justify-content: center;
-  }
-
-  .catering-card-list {
-    width: 100%;
-    justify-content: center;
-    overflow: hidden;
-  }
-
-    .catering-image {
-    width: 100%;
-    height: 175px;
-    flex-shrink: 0;
-    overflow: hidden;
-  }
-
-  .catering-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .catering-card h3 {
-    margin: 9px 0 6px;
-
-    height: 38px;
-    min-height: 38px;
-
-    font-size: 15px;
-    line-height: 1.2;
-  }
-
-  .catering-description {
-    height: 52px;
-    min-height: 52px;
-
-    padding: 6px 8px;
-
-    font-size: 10.5px;
-    line-height: 1.35;
-  }
-}
-
 }
 
 @media (max-width: 1000px) {
