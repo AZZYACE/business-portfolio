@@ -4,6 +4,7 @@ import { cateringData } from '../../data/businessData';
 function CateringSection() {
   const [selectedCatering, setSelectedCatering] = useState(null);
   const [notification, setNotification] = useState('');
+  const [paymentMethod, setPaymentMethod] = useState('');
 
   const today = new Date().toISOString().split('T')[0];
 
@@ -17,6 +18,13 @@ function CateringSection() {
     notes: '',
   });
 
+  const [paymentDetails, setPaymentDetails] = useState({
+    cardNumber: '',
+    cardName: '',
+    expiryDate: '',
+    cvv: '',
+  });
+
   const handleChange = (event) => {
     const { name, value } = event.target;
 
@@ -24,6 +32,26 @@ function CateringSection() {
       ...currentDetails,
       [name]: value,
     }));
+  };
+
+  const handlePaymentChange = (event) => {
+    const { name, value } = event.target;
+
+    setPaymentDetails((currentDetails) => ({
+      ...currentDetails,
+      [name]: value,
+    }));
+  };
+
+  const handlePaymentMethodChange = (event) => {
+    setPaymentMethod(event.target.value);
+
+    setPaymentDetails({
+      cardNumber: '',
+      cardName: '',
+      expiryDate: '',
+      cvv: '',
+    });
   };
 
   const handleSelectCatering = (catering) => {
@@ -52,6 +80,8 @@ function CateringSection() {
     selectedCatering && guests > 0
       ? Number(selectedCatering.pricePerGuest) * guests
       : 0;
+
+  const downpayment = estimatedTotal * 0.5;
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -97,15 +127,94 @@ function CateringSection() {
       return;
     }
 
-    setNotification(
-      'Your catering booking has been submitted successfully!'
-    );
+    if (!paymentMethod) {
+      setNotification(
+        'Please select a payment method.'
+      );
+
+      setTimeout(() => {
+        setNotification('');
+      }, 3000);
+
+      return;
+    }
+
+    if (paymentMethod === 'card') {
+      if (
+        !paymentDetails.cardNumber ||
+        !paymentDetails.cardName ||
+        !paymentDetails.expiryDate ||
+        !paymentDetails.cvv
+      ) {
+        setNotification(
+          'Please complete all card payment information.'
+        );
+
+        setTimeout(() => {
+          setNotification('');
+        }, 3000);
+
+        return;
+      }
+
+      const cardNumber = paymentDetails.cardNumber.replace(
+        /\s/g,
+        ''
+      );
+
+      if (!/^\d{16}$/.test(cardNumber)) {
+        setNotification(
+          'Please enter a valid 16-digit card number.'
+        );
+
+        setTimeout(() => {
+          setNotification('');
+        }, 3000);
+
+        return;
+      }
+
+      if (!/^\d{3,4}$/.test(paymentDetails.cvv)) {
+        setNotification(
+          'Please enter a valid CVV.'
+        );
+
+        setTimeout(() => {
+          setNotification('');
+        }, 3000);
+
+        return;
+      }
+    }
+
+    if (paymentMethod === 'cash') {
+      setNotification(
+        `Booking submitted. A 50% downpayment of ₱${downpayment.toFixed(
+          2
+        )} must be paid in person at the SHACE physical shop.`
+      );
+    } else {
+      setNotification(
+        `Booking submitted. A 50% downpayment of ₱${downpayment.toFixed(
+          2
+        )} is required through card payment.`
+      );
+    }
 
     setTimeout(() => {
       setNotification('');
-    }, 4000);
+    }, 5000);
 
     setSelectedCatering(null);
+
+    setPaymentMethod('');
+
+    setPaymentDetails({
+      cardNumber: '',
+      cardName: '',
+      expiryDate: '',
+      cvv: '',
+    });
 
     setEventDetails({
       name: '',
@@ -130,9 +239,9 @@ function CateringSection() {
           <div className="catering-notification-content">
 
             <strong>
-              {notification.includes('submitted')
+              {notification.includes('Booking submitted')
                 ? 'Booking Submitted!'
-                : 'Catering Selected!'}
+                : 'Catering Information'}
             </strong>
 
             <p>
@@ -379,11 +488,137 @@ function CateringSection() {
                         Estimated Total: ₱
                         {estimatedTotal.toFixed(2)}
                       </strong>
+
+                      <strong className="catering-downpayment">
+                        50% Downpayment: ₱
+                        {downpayment.toFixed(2)}
+                      </strong>
                     </>
                   )}
 
                 </div>
               )}
+
+              <div className="catering-payment">
+
+                <label>
+                  How would you like to pay?
+
+                  <select
+                    value={paymentMethod}
+                    onChange={handlePaymentMethodChange}
+                  >
+                    <option value="">
+                      Select payment method
+                    </option>
+
+                    <option value="card">
+                      Card
+                    </option>
+
+                    <option value="cash">
+                      Cash
+                    </option>
+                  </select>
+                </label>
+
+                {paymentMethod === 'card' && (
+                  <div className="catering-card-payment">
+
+                    <label>
+                      Card Number
+
+                      <input
+                        type="text"
+                        name="cardNumber"
+                        value={paymentDetails.cardNumber}
+                        onChange={handlePaymentChange}
+                        placeholder="1234 5678 9012 3456"
+                        maxLength="19"
+                        inputMode="numeric"
+                      />
+                    </label>
+
+                    <label>
+                      Cardholder Name
+
+                      <input
+                        type="text"
+                        name="cardName"
+                        value={paymentDetails.cardName}
+                        onChange={handlePaymentChange}
+                        placeholder="Name on card"
+                      />
+                    </label>
+
+                    <div className="catering-card-row">
+
+                      <label>
+                        Expiry Date
+
+                        <input
+                          type="month"
+                          name="expiryDate"
+                          value={paymentDetails.expiryDate}
+                          onChange={handlePaymentChange}
+                        />
+                      </label>
+
+                      <label>
+                        CVV
+
+                        <input
+                          type="password"
+                          name="cvv"
+                          value={paymentDetails.cvv}
+                          onChange={handlePaymentChange}
+                          placeholder="123"
+                          maxLength="4"
+                          inputMode="numeric"
+                        />
+                      </label>
+
+                    </div>
+
+                    {guests > 0 && (
+                      <div className="catering-payment-info">
+                        <strong>
+                          50% Downpayment Required
+                        </strong>
+
+                        <span>
+                          ₱{downpayment.toFixed(2)}
+                        </span>
+                      </div>
+                    )}
+
+                  </div>
+                )}
+
+                {paymentMethod === 'cash' && (
+                  <div className="catering-payment-info">
+
+                    <strong>
+                      Cash Payment
+                    </strong>
+
+                    <p>
+                      A 50% downpayment is required
+                      and must be paid in person at
+                      the SHACE physical shop.
+                    </p>
+
+                    {guests > 0 && (
+                      <span>
+                        Downpayment: ₱
+                        {downpayment.toFixed(2)}
+                      </span>
+                    )}
+
+                  </div>
+                )}
+
+              </div>
 
               <button
                 type="submit"

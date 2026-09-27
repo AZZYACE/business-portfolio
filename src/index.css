@@ -1177,9 +1177,7 @@ main {
 
 .catering-section {
   min-height: 92vh;
-
   padding: 25px 40px 50px;
-
   background: linear-gradient(
     to bottom,
     #9e6f3d 0%,
@@ -1187,79 +1185,57 @@ main {
     #d8c0a3 65%,
     #ffffff 100%
   );
-
   color: #ffffff;
-
   scroll-margin-top: 65px;
 }
 
 .catering-header {
   text-align: center;
-
   margin-bottom: 25px;
 }
 
 .catering-header h2 {
   display: inline-block;
-
   margin: 0;
-
   font-size: 46px;
   font-weight: bold;
   line-height: 1.1;
-
   color: #ffffff;
 }
 
 .catering-header h2::after {
   content: "";
-
   display: block;
-
   width: 90%;
-
   height: 3px;
-
   margin: 14px auto 18px;
-
   background: #ffffff;
 }
 
 .catering-header p {
   margin: 0 auto;
-
   max-width: 850px;
-
   font-size: 24px;
   line-height: 1.3;
-
   color: #ffffff;
 }
 
 .catering-container {
   display: grid;
-
   grid-template-columns:
     minmax(0, 1.3fr)
     minmax(300px, 0.7fr);
-
   gap: 20px;
-
   max-width: 1250px;
-
   margin: 0 auto;
 }
 
 .catering-packages,
 .catering-information {
   padding: 18px;
-
-  background: rgba(255, 255, 255, 0.08);
-
+  background: #b98b5e;
   border: 3px solid #9e6f3d;
-
   border-radius: 16px;
-
   box-shadow:
     0 6px 15px rgba(0, 0, 0, 0.12);
 }
@@ -1267,51 +1243,35 @@ main {
 .catering-packages h3,
 .catering-information h3 {
   margin: 0;
-
   text-align: center;
-
   font-size: 26px;
   font-weight: bold;
-
   line-height: 1.2;
-
   color: #ffffff;
 }
 
 .catering-divider {
   width: 100%;
-
   height: 2px;
-
   margin: 10px 0 16px;
-
   background: #ffffff;
 }
 
 .catering-package-grid {
   display: grid;
-
   grid-template-columns:
     repeat(3, minmax(0, 1fr));
-
   gap: 12px;
 }
 
 .catering-package-card {
   overflow: hidden;
-
   display: flex;
-
   flex-direction: column;
-
   background: #ffffff;
-
   color: #5f432b;
-
   border: 3px solid #9e6f3d;
-
   border-radius: 15px;
-
   transition:
     transform 0.25s ease,
     box-shadow 0.25s ease,
@@ -1320,103 +1280,71 @@ main {
 
 .catering-package-card:hover {
   transform: translateY(-3px);
-
   box-shadow:
     0 6px 15px rgba(0, 0, 0, 0.18);
 }
 
 .catering-package-card.selected {
   border-color: #5f432b;
-
   box-shadow:
     0 0 0 3px rgba(95, 67, 43, 0.25);
 }
 
 .catering-package-image {
   width: 100%;
-
   height: 135px;
-
   overflow: hidden;
-
   border-bottom: 3px solid #9e6f3d;
 }
 
 .catering-package-image img {
   width: 100%;
-
   height: 100%;
-
   display: block;
-
   object-fit: cover;
 }
 
 .catering-package-content {
   display: flex;
-
   flex-direction: column;
-
   flex: 1;
-
   padding: 12px;
 }
 
 .catering-package-content h4 {
   margin: 0 0 6px;
-
   font-size: 17px;
-
   line-height: 1.2;
-
   color: #5f432b;
 }
 
 .catering-package-content p {
   margin: 0 0 8px;
-
   min-height: 50px;
-
   font-size: 13px;
-
   line-height: 1.4;
-
   color: #6d5846;
 }
 
 .catering-package-price {
   display: block;
-
   margin-bottom: 10px;
-
   font-size: 17px;
-
   font-weight: bold;
-
   color: #9e6f3d;
 }
 
 .catering-select-button {
   width: 100%;
-
   margin-top: auto;
-
   padding: 9px 10px;
-
   background: #9e6f3d;
-
   color: #ffffff;
-
   border: 2px solid #9e6f3d;
-
   border-radius: 9px;
-
   font-size: 12px;
-
   font-weight: bold;
-
   cursor: pointer;
-
   transition:
     background 0.2s ease,
     color 0.2s ease,
@@ -1425,37 +1353,23 @@ main {
 
 .catering-select-button:hover {
   background: #ffffff;
-
   color: #9e6f3d;
-
   transform: translateY(-1px);
 }
 
 .selected-catering {
   display: flex;
-
   align-items: center;
-
   justify-content: center;
-
   gap: 7px;
-
   flex-wrap: wrap;
-
   margin-top: 12px;
-
   padding: 9px 12px;
-
   background: #ffffff;
-
   color: #5f432b;
-
   border: 2px solid #9e6f3d;
-
   border-radius: 9px;
-
   text-align: center;
-
   font-size: 13px;
 }
 
@@ -1465,90 +1379,64 @@ main {
 
 .selected-catering-price {
   font-weight: bold;
-
   color: #9e6f3d;
 }
 
 .catering-form {
   display: flex;
-
   flex-direction: column;
-
   gap: 9px;
 }
 
 .catering-form label {
   display: flex;
-
   flex-direction: column;
-
   gap: 4px;
-
   font-size: 13px;
-
   font-weight: bold;
-
   color: #ffffff;
 }
 
 .catering-form input,
+.catering-form select,
 .catering-form textarea {
   width: 100%;
-
   box-sizing: border-box;
-
   padding: 8px 11px;
-
   background: #ffffff;
-
   color: #5f432b;
-
   border: 2px solid #9e6f3d;
-
   border-radius: 8px;
-
   outline: none;
-
   font-family: inherit;
-
   font-size: 13px;
-
   transition:
     border-color 0.2s ease,
     box-shadow 0.2s ease;
 }
 
 .catering-form input:focus,
+.catering-form select:focus,
 .catering-form textarea:focus {
   border-color: #5f432b;
-
   box-shadow:
     0 0 0 2px rgba(255, 255, 255, 0.25);
 }
 
 .catering-form textarea {
   min-height: 65px;
-
   resize: vertical;
 }
 
 .catering-form-summary {
   display: flex;
-
   flex-direction: column;
-
   gap: 3px;
-
   padding: 9px 12px;
-
   background: #ffffff;
-
   color: #5f432b;
-
   border: 2px solid #9e6f3d;
-
   border-radius: 9px;
-
   font-size: 13px;
 }
 
@@ -1558,42 +1446,28 @@ main {
 
 .catering-form-summary strong {
   font-size: 14px;
-
   color: #9e6f3d;
 }
 
 .catering-estimated-total {
   margin-top: 3px;
-
   font-size: 16px !important;
-
   color: #9e6f3d;
 }
 
 .catering-book-button {
   width: 100%;
-
   margin-top: 2px;
-
   padding: 10px 15px;
-
   background: #9e6f3d;
-
   color: #ffffff;
-
   border: 2px solid #9e6f3d;
-
   border-radius: 9px;
-
   font-size: 13px;
-
   font-weight: bold;
-
   cursor: pointer;
-
   box-shadow:
     0 0 8px rgba(255, 255, 255, 0.2);
-
   transition:
     background 0.2s ease,
     color 0.2s ease,
@@ -1603,121 +1477,137 @@ main {
 
 .catering-book-button:hover {
   background: #ffffff;
-
   color: #9e6f3d;
-
   transform: translateY(-1px);
-
   box-shadow:
     0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .catering-notification {
   position: fixed;
-
   top: 85px;
   right: 25px;
-
   z-index: 9999;
-
   display: flex;
-
   align-items: flex-start;
-
   gap: 12px;
-
   width: 340px;
-
   box-sizing: border-box;
-
   padding: 15px 17px;
-
   background: #ffffff;
-
   color: #5f432b;
-
   border: 3px solid #9e6f3d;
-
   border-radius: 13px;
-
   box-shadow:
     0 7px 20px rgba(0, 0, 0, 0.2);
-
   animation:
     cateringNotificationIn 0.35s ease-out;
 }
 
 .catering-notification-icon {
   display: flex;
-
   align-items: center;
   justify-content: center;
-
   width: 34px;
   height: 34px;
-
   flex-shrink: 0;
-
   background: #9e6f3d;
-
   color: #ffffff;
-
   border-radius: 50%;
-
   font-size: 18px;
-
   font-weight: bold;
 }
 
 .catering-notification-content {
   flex: 1;
-
   min-width: 0;
 }
 
 .catering-notification-content strong {
   display: block;
-
   margin-bottom: 4px;
-
   font-size: 15px;
-
   line-height: 1.2;
-
   color: #5f432b;
 }
 
 .catering-notification-content p {
   margin: 0;
-
   font-size: 13px;
-
   line-height: 1.4;
-
   color: #6d5846;
 }
 
-@keyframes cateringNotificationIn {
+.catering-payment {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
 
+.catering-card-payment {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  padding: 10px;
+  background: #d8c0a3;
+  border: 2px solid #9e6f3d;
+  border-radius: 9px;
+}
+
+.catering-card-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 9px;
+}
+
+.catering-payment-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 9px 12px;
+  background: #ffffff;
+  color: #5f432b;
+  border: 2px solid #9e6f3d;
+  border-radius: 9px;
+  font-size: 13px;
+}
+
+.catering-payment-info strong {
+  color: #9e6f3d;
+}
+
+.catering-payment-info span {
+  font-weight: bold;
+  color: #5f432b;
+}
+
+.catering-payment-info p {
+  margin: 0;
+  line-height: 1.4;
+  color: #6d5846;
+}
+
+.catering-downpayment {
+  margin-top: 3px;
+  font-size: 16px !important;
+  color: #9e6f3d !important;
+}
+
+@keyframes cateringNotificationIn {
   from {
     opacity: 0;
-
     transform: translateX(30px);
   }
 
   to {
     opacity: 1;
-
     transform: translateX(0);
   }
-
 }
 
 @media (max-width: 1100px) {
-
   .catering-container {
     grid-template-columns: 1fr;
-
     max-width: 900px;
   }
 
@@ -1725,11 +1615,9 @@ main {
     grid-template-columns:
       repeat(3, minmax(0, 1fr));
   }
-
 }
 
 @media (max-width: 800px) {
-
   .catering-section {
     padding: 25px 20px 40px;
   }
@@ -1745,11 +1633,9 @@ main {
   .catering-package-image {
     height: 180px;
   }
-
 }
 
 @media (max-width: 600px) {
-
   .catering-section {
     padding: 20px 15px 35px;
   }
@@ -1759,18 +1645,17 @@ main {
     padding: 15px;
   }
 
-  .catering-notification {
-    top: 75px;
-
-    left: 15px;
-
-    right: 15px;
-
-    min-width: 0;
-
-    max-width: none;
+  .catering-card-row {
+    grid-template-columns: 1fr;
   }
 
+  .catering-notification {
+    top: 75px;
+    left: 15px;
+    right: 15px;
+    min-width: 0;
+    max-width: none;
+  }
 }
 
 .order-section {
