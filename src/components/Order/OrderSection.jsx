@@ -369,7 +369,6 @@ function OrderSection({
             <button
               type="submit"
               className="confirm-order-button"
-              disabled={cartItems.length === 0}
             >
               CONFIRM ORDER
             </button>

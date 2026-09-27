@@ -1,10 +1,26 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import ProductCard from './ProductCard';
 import { productsData } from '../../data/businessData';
 
 function ProductCarousel({ onAddToCart }) {
   const [activeCategory, setActiveCategory] = useState('ALL');
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [visibleCount, setVisibleCount] = useState(
+    window.innerWidth <= 768 ? 1 : 4
+  );
+
+  useEffect(() => {
+    const handleResize = () => {
+      setVisibleCount(window.innerWidth <= 768 ? 1 : 4);
+      setCurrentIndex(0);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   const filteredProducts =
     activeCategory === 'ALL'
@@ -13,8 +29,13 @@ function ProductCarousel({ onAddToCart }) {
           (product) => product.category === activeCategory
         );
 
+  const maxIndex = Math.max(
+    filteredProducts.length - visibleCount,
+    0
+  );
+
   const nextProducts = () => {
-    if (currentIndex < filteredProducts.length - 4) {
+    if (currentIndex < maxIndex) {
       setCurrentIndex(currentIndex + 1);
     }
   };
@@ -32,7 +53,7 @@ function ProductCarousel({ onAddToCart }) {
 
   const visibleProducts = filteredProducts.slice(
     currentIndex,
-    currentIndex + 4
+    currentIndex + visibleCount
   );
 
   return (
@@ -101,9 +122,7 @@ function ProductCarousel({ onAddToCart }) {
         <button
           className="product-carousel-arrow right"
           onClick={nextProducts}
-          disabled={
-            currentIndex >= filteredProducts.length - 4
-          }
+          disabled={currentIndex >= maxIndex}
           aria-label="Next products"
         >
           <svg
