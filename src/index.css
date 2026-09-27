@@ -1903,14 +1903,25 @@ main {
   transform: translateY(-1px);
 }
 
+/* =========================
+   ORDER SUMMARY
+   ========================= */
+
 .order-summary {
+  width: 250px;
+  max-width: 100%;
   margin-top: 20px;
+}
+
+.order-summary h3 {
+  text-align: left;
+  margin-left: 0;
 }
 
 .order-summary-box {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 7px;
   margin-top: 10px;
   padding: 12px 15px;
   background: #ffffff;
@@ -1935,6 +1946,10 @@ main {
   font-weight: bold;
   color: #9e6f3d;
 }
+
+/* =========================
+   CUSTOMER INFORMATION
+   ========================= */
 
 .customer-form {
   display: flex;
@@ -2122,6 +2137,10 @@ main {
     0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
+/* =========================
+   NOTIFICATION
+   ========================= */
+
 .order-notification {
   position: fixed;
   top: 85px;
@@ -2184,6 +2203,10 @@ main {
   }
 }
 
+/* =========================
+   RESPONSIVE
+   ========================= */
+
 @media (max-width: 1100px) {
   .order-container {
     grid-template-columns: 1fr;
@@ -2218,6 +2241,11 @@ main {
   .order-left,
   .customer-information {
     padding: 15px;
+  }
+
+  .order-summary {
+    width: 250px;
+    max-width: 100%;
   }
 
   .order-type > div {
@@ -4362,4 +4390,5 @@ main {
   .order-notification p {
     font-size: 13px;
   }
+
 }
