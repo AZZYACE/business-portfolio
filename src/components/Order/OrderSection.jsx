@@ -16,6 +16,8 @@ function OrderSection({
     notes: '',
   });
 
+  const [notification, setNotification] = useState('');
+
   const subtotal = cartItems.reduce(
     (total, item) =>
       total + Number(item.price) * item.quantity,
@@ -36,6 +38,18 @@ function OrderSection({
       ...currentCustomer,
       [name]: value,
     }));
+  };
+
+  const handleRemove = (product) => {
+    onRemove(product.id);
+
+    setNotification(
+      `${product.name} has been removed from your order.`
+    );
+
+    setTimeout(() => {
+      setNotification('');
+    }, 3000);
   };
 
   const handleSubmit = (event) => {
@@ -64,7 +78,9 @@ function OrderSection({
     }
 
     alert(
-      `Order confirmed!\n\nTotal: ₱ ${total.toFixed(2)}\n\nThank you, ${customer.name}!`
+      `Order confirmed!\n\nTotal: ₱ ${total.toFixed(
+        2
+      )}\n\nThank you, ${customer.name}!`
     );
 
     onClearCart();
@@ -79,307 +95,340 @@ function OrderSection({
     });
   };
 
+  const goToProducts = () => {
+    document
+      .getElementById('products')
+      ?.scrollIntoView({
+        behavior: 'smooth',
+      });
+  };
+
   return (
-    <section id="order" className="order-section">
+    <>
+      {notification && (
+        <div className="order-notification">
 
-      <div className="order-header">
-        <h2>ORDER NOW</h2>
-      </div>
+          <span className="order-notification-icon">
+            ✓
+          </span>
 
-      <div className="order-container">
+          <div>
+            <strong>Product Removed!</strong>
 
-        <div className="order-left">
+            <p>{notification}</p>
+          </div>
 
-          <h3>YOUR ORDER</h3>
+        </div>
+      )}
 
-          <div className="order-divider"></div>
+      <section id="order" className="order-section">
 
-          {cartItems.length === 0 ? (
-            <div className="empty-order">
-              <p>Your order is currently empty.</p>
+        <div className="order-header">
+          <h2>ORDER NOW</h2>
+        </div>
+
+        <div className="order-container">
+
+          <div className="order-left">
+
+            <h3>YOUR ORDER</h3>
+
+            <div className="order-divider"></div>
+
+            {cartItems.length === 0 ? (
+
+              <div className="empty-order">
+
+                <p>Your order is currently empty.</p>
+
+              </div>
+
+            ) : (
+
+              <div className="order-product-grid">
+
+                {cartItems.map((product) => (
+
+                  <div
+                    className="order-product-card"
+                    key={product.id}
+                  >
+
+                    <div className="order-product-top">
+
+                      <img
+                        src={product.image}
+                        alt={product.name}
+                      />
+
+                      <div className="order-product-info">
+
+                        <span className="order-product-name">
+                          {product.name}
+                        </span>
+
+                        <span className="order-product-price">
+                          ₱ {Number(product.price).toFixed(2)}
+                        </span>
+
+                      </div>
+
+                    </div>
+
+                    <div className="order-product-controls">
+
+                      <div className="quantity-controls">
+
+                        <button
+                          type="button"
+                          onClick={() =>
+                            onDecrease(product.id)
+                          }
+                          aria-label={`Decrease ${product.name}`}
+                        >
+                          −
+                        </button>
+
+                        <span>
+                          {product.quantity}
+                        </span>
+
+                        <button
+                          type="button"
+                          onClick={() =>
+                            onIncrease(product.id)
+                          }
+                          aria-label={`Increase ${product.name}`}
+                        >
+                          +
+                        </button>
+
+                      </div>
+
+                      <button
+                        type="button"
+                        className="delete-product-button"
+                        onClick={() =>
+                          handleRemove(product)
+                        }
+                        aria-label={`Remove ${product.name}`}
+                      >
+                        🗑
+                      </button>
+
+                    </div>
+
+                  </div>
+
+                ))}
+
+              </div>
+
+            )}
+
+            <div className="order-view-products">
 
               <button
                 type="button"
-                onClick={() =>
-                  document
-                    .getElementById('products')
-                    ?.scrollIntoView({
-                      behavior: 'smooth',
-                    })
-                }
+                onClick={goToProducts}
               >
                 VIEW PRODUCTS
               </button>
+
             </div>
-          ) : (
-            <div className="order-product-grid">
 
-              {cartItems.map((product) => (
-                <div
-                  className="order-product-card"
-                  key={product.id}
-                >
+            <div className="order-summary">
 
-                  <div className="order-product-top">
+              <h3>ORDER SUMMARY</h3>
 
-                    <img
-                      src={product.image}
-                      alt={product.name}
-                    />
+              <div className="order-summary-box">
 
-                    <div className="order-product-info">
+                <div>
+                  <span>Subtotal:</span>
 
-                      <span className="order-product-name">
-                        {product.name}
-                      </span>
+                  <span>
+                    ₱ {subtotal.toFixed(2)}
+                  </span>
+                </div>
 
-                      <span className="order-product-price">
-                        ₱ {Number(product.price).toFixed(2)}
-                      </span>
+                <div>
+                  <span>Delivery Fee:</span>
 
-                    </div>
+                  <span>
+                    ₱ {deliveryFee.toFixed(2)}
+                  </span>
+                </div>
 
-                  </div>
+                <div className="order-total">
 
-                  <div className="order-product-controls">
+                  <span>Total:</span>
 
-                    <div className="quantity-controls">
-
-                      <button
-                        type="button"
-                        onClick={() =>
-                          onDecrease(product.id)
-                        }
-                        aria-label={`Decrease ${product.name}`}
-                      >
-                        −
-                      </button>
-
-                      <span>
-                        {product.quantity}
-                      </span>
-
-                      <button
-                        type="button"
-                        onClick={() =>
-                          onIncrease(product.id)
-                        }
-                        aria-label={`Increase ${product.name}`}
-                      >
-                        +
-                      </button>
-
-                    </div>
-
-                    <button
-                      type="button"
-                      className="delete-product-button"
-                      onClick={() =>
-                        onRemove(product.id)
-                      }
-                      aria-label={`Remove ${product.name}`}
-                    >
-                      🗑
-                    </button>
-
-                  </div>
+                  <span>
+                    ₱ {total.toFixed(2)}
+                  </span>
 
                 </div>
-              ))}
 
-            </div>
-          )}
-
-          <div className="order-summary">
-
-            <h3>ORDER SUMMARY</h3>
-
-            <div className="order-summary-box">
-
-              <div>
-                <span>Subtotal:</span>
-                <span>
-                  ₱ {subtotal.toFixed(2)}
-                </span>
-              </div>
-
-              <div>
-                <span>Delivery Fee:</span>
-                <span>
-                  ₱ {deliveryFee.toFixed(2)}
-                </span>
-              </div>
-
-              <div className="order-total">
-                <span>Total:</span>
-                <span>
-                  ₱ {total.toFixed(2)}
-                </span>
               </div>
 
             </div>
 
           </div>
 
-        </div>
+          <div className="customer-information">
 
-        <div className="customer-information">
+            <h3>CUSTOMER INFORMATION</h3>
 
-          <h3>CUSTOMER INFORMATION</h3>
+            <div className="order-divider"></div>
 
-          <div className="order-divider"></div>
-
-          <form
-            className="customer-form"
-            onSubmit={handleSubmit}
-          >
-
-            <label>
-              Name
-
-              <input
-                type="text"
-                name="name"
-                value={customer.name}
-                onChange={handleChange}
-                placeholder="Enter your name"
-              />
-            </label>
-
-            <label>
-              Contact Number
-
-              <input
-                type="text"
-                name="contact"
-                value={customer.contact}
-                onChange={handleChange}
-                placeholder="+63 XXX-XXX-XXXX"
-              />
-            </label>
-
-            <label>
-              Email Address
-
-              <input
-                type="email"
-                name="email"
-                value={customer.email}
-                onChange={handleChange}
-                placeholder="email@address.com"
-              />
-            </label>
-
-            <div className="order-type">
-
-              <span>Order Type</span>
-
-              <div>
-
-                <label>
-                  <input
-                    type="radio"
-                    name="orderType"
-                    value="pickup"
-                    checked={
-                      customer.orderType === 'pickup'
-                    }
-                    onChange={handleChange}
-                  />
-                  Pickup
-                </label>
-
-                <label>
-                  <input
-                    type="radio"
-                    name="orderType"
-                    value="delivery"
-                    checked={
-                      customer.orderType === 'delivery'
-                    }
-                    onChange={handleChange}
-                  />
-                  Delivery
-                </label>
-
-              </div>
-
-            </div>
-
-            <label>
-              Delivery Address
-
-              <input
-                type="text"
-                name="address"
-                value={customer.address}
-                onChange={handleChange}
-                placeholder="Unit/Bldg/House No., Street, Barangay, City, Province"
-              />
-            </label>
-
-            <label>
-              Order Notes/Requests
-
-              <textarea
-                name="notes"
-                value={customer.notes}
-                onChange={handleChange}
-              ></textarea>
-            </label>
-
-            <div className="order-help">
-
-              <span>
-                Need help with your order?
-              </span>
-
-              <div>
-
-                <button
-                  type="button"
-                  onClick={() =>
-                    document
-                      .getElementById('contact')
-                      ?.scrollIntoView({
-                        behavior: 'smooth',
-                      })
-                  }
-                >
-                  CONTACT US
-                </button>
-
-                <button
-                  type="button"
-                  onClick={() =>
-                    document
-                      .getElementById('products')
-                      ?.scrollIntoView({
-                        behavior: 'smooth',
-                      })
-                  }
-                >
-                  VIEW PRODUCTS
-                </button>
-
-              </div>
-
-            </div>
-
-            <button
-              type="submit"
-              className="confirm-order-button"
+            <form
+              className="customer-form"
+              onSubmit={handleSubmit}
             >
-              CONFIRM ORDER
-            </button>
 
-          </form>
+              <label>
+                Name
+
+                <input
+                  type="text"
+                  name="name"
+                  value={customer.name}
+                  onChange={handleChange}
+                  placeholder="Enter your name"
+                />
+              </label>
+
+              <label>
+                Contact Number
+
+                <input
+                  type="text"
+                  name="contact"
+                  value={customer.contact}
+                  onChange={handleChange}
+                  placeholder="+63 XXX-XXX-XXXX"
+                />
+              </label>
+
+              <label>
+                Email Address
+
+                <input
+                  type="email"
+                  name="email"
+                  value={customer.email}
+                  onChange={handleChange}
+                  placeholder="email@address.com"
+                />
+              </label>
+
+              <div className="order-type">
+
+                <span>Order Type</span>
+
+                <div>
+
+                  <label>
+                    <input
+                      type="radio"
+                      name="orderType"
+                      value="pickup"
+                      checked={
+                        customer.orderType === 'pickup'
+                      }
+                      onChange={handleChange}
+                    />
+
+                    Pickup
+                  </label>
+
+                  <label>
+                    <input
+                      type="radio"
+                      name="orderType"
+                      value="delivery"
+                      checked={
+                        customer.orderType === 'delivery'
+                      }
+                      onChange={handleChange}
+                    />
+
+                    Delivery
+                  </label>
+
+                </div>
+
+              </div>
+
+              <label>
+                Delivery Address
+
+                <input
+                  type="text"
+                  name="address"
+                  value={customer.address}
+                  onChange={handleChange}
+                  placeholder="Unit/Bldg/House No., Street, Barangay, City, Province"
+                />
+              </label>
+
+              <label>
+                Order Notes/Requests
+
+                <textarea
+                  name="notes"
+                  value={customer.notes}
+                  onChange={handleChange}
+                ></textarea>
+              </label>
+
+              <div className="order-help">
+
+                <span>
+                  Need help with your order?
+                </span>
+
+                <div>
+
+                  <button
+                    type="button"
+                    onClick={() =>
+                      document
+                        .getElementById('contact')
+                        ?.scrollIntoView({
+                          behavior: 'smooth',
+                        })
+                    }
+                  >
+                    CONTACT US
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={goToProducts}
+                  >
+                    VIEW PRODUCTS
+                  </button>
+
+                </div>
+
+              </div>
+
+              <button
+                type="submit"
+                className="confirm-order-button"
+              >
+                CONFIRM ORDER
+              </button>
+
+            </form>
+
+          </div>
 
         </div>
 
-      </div>
-
-    </section>
+      </section>
+    </>
   );
 }
 

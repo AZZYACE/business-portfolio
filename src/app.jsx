@@ -10,6 +10,7 @@ import Footer from './components/Footer';
 
 function App() {
   const [cartItems, setCartItems] = useState([]);
+  const [notification, setNotification] = useState('');
 
   const addToCart = (product) => {
     setCartItems((currentItems) => {
@@ -36,6 +37,12 @@ function App() {
         },
       ];
     });
+
+    setNotification(`${product.name} has been added to your order.`);
+
+    setTimeout(() => {
+      setNotification('');
+    }, 3000);
   };
 
   const increaseQuantity = (productId) => {
@@ -80,12 +87,49 @@ function App() {
     <>
       <Header />
 
+      {notification && (
+        <div className="cart-notification">
+
+          <span className="cart-notification-check">
+            ✓
+          </span>
+
+          <div className="cart-notification-content">
+
+            <strong>Product Added!</strong>
+
+            <p>{notification}</p>
+
+            <button
+              type="button"
+              className="view-order-notification-button"
+              onClick={() => {
+                document
+                  .getElementById('order')
+                  ?.scrollIntoView({
+                    behavior: 'smooth',
+                  });
+
+                setNotification('');
+              }}
+            >
+              VIEW YOUR ORDER
+            </button>
+
+          </div>
+
+        </div>
+      )}
+
       <main>
         <HomeSection />
+
         <ProductsSection onAddToCart={addToCart} />
+
         <CateringSection
           onBookNow={bookCatering}
         />
+
         <OrderSection
           cartItems={cartItems}
           onIncrease={increaseQuantity}
@@ -93,7 +137,9 @@ function App() {
           onRemove={removeFromCart}
           onClearCart={() => setCartItems([])}
         />
+
         <AboutSection />
+
         <ContactForm />
       </main>
 
