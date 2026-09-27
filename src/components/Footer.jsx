@@ -56,7 +56,7 @@ function Footer() {
             </a>
 
             <a
-              href="https://example.com/facebook"
+              href="https://www.facebook.com/profile.php?id=61589229329379&sk=about_details"
               aria-label="Facebook"
               target="_blank"
               rel="noopener noreferrer"
@@ -70,7 +70,7 @@ function Footer() {
             </a>
 
             <a
-              href="https://example.com/instagram"
+              href="https://www.instagram.com/icedteacubes/?hl=en"
               aria-label="Instagram"
               target="_blank"
               rel="noopener noreferrer"
@@ -104,7 +104,7 @@ function Footer() {
             </a>
 
             <a
-              href="https://example.com/location"
+              href="https://maps.app.goo.gl/GspVp11PZM9wyuek6"
               aria-label="Location"
               target="_blank"
               rel="noopener noreferrer"
