@@ -11,7 +11,9 @@ function Header() {
       (entries) => {
         const visibleSection = entries
           .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+          .sort(
+            (a, b) => b.intersectionRatio - a.intersectionRatio
+          )[0];
 
         if (visibleSection) {
           setActiveSection(visibleSection.target.id);
@@ -32,6 +34,9 @@ function Header() {
   return (
     <header className="site-header">
       <div className="header-main">
+
+        <MenuNav activeSection={activeSection} />
+
         <div className="header-brand">
           <span>SHACE CAFECARY</span>
 
@@ -42,7 +47,6 @@ function Header() {
           />
         </div>
 
-        <MenuNav activeSection={activeSection} />
       </div>
     </header>
   );
