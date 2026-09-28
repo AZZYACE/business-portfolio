@@ -1639,30 +1639,69 @@ main {
 }
 
 .catering-form-summary {
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-  padding: 9px 12px;
+  padding: 11px 13px;
   background: #ffffff;
   color: #5f432b;
   border: 2px solid #9e6f3d;
   border-radius: 9px;
+}
+
+.catering-summary-heading {
+  margin-bottom: 3px;
+  font-size: 10px;
+  font-weight: bold;
+  letter-spacing: 0.4px;
+  color: #8a6a4c;
+}
+
+.catering-summary-name {
+  margin-bottom: 7px;
+  font-size: 15px;
+  font-weight: bold;
+  line-height: 1.2;
+  color: #9e6f3d;
+}
+
+.catering-summary-details {
+  display: flex;
+  gap: 10px;
+  padding-bottom: 9px;
+  border-bottom: 1px solid #d8c0a3;
+  font-size: 12px;
+  color: #6d5846;
+}
+
+.catering-summary-details span + span {
+  padding-left: 10px;
+  border-left: 1px solid #d8c0a3;
+}
+
+.catering-summary-totals {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-top: 9px;
+}
+
+.catering-summary-totals div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.catering-summary-totals span {
+  font-size: 12px;
+  color: #6d5846;
+}
+
+.catering-summary-totals strong {
   font-size: 13px;
-}
-
-.catering-form-summary span {
-  font-size: 11px;
-}
-
-.catering-form-summary strong {
-  font-size: 14px;
   color: #9e6f3d;
 }
 
-.catering-estimated-total {
-  margin-top: 3px;
-  font-size: 16px !important;
-  color: #9e6f3d;
+.catering-summary-totals div:first-child strong {
+  font-size: 15px;
 }
 
 .catering-book-button {
@@ -2186,6 +2225,50 @@ main {
   transition:
     border-color 0.2s ease,
     box-shadow 0.2s ease;
+}
+
+.order-card-payment {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  padding: 10px;
+  background: #d8c0a3;
+  border: 2px solid #9e6f3d;
+  border-radius: 9px;
+}
+
+.order-card-payment label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 13px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.order-card-payment input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 8px 11px;
+  background: #ffffff;
+  color: #5f432b;
+  border: 2px solid #9e6f3d;
+  border-radius: 8px;
+  outline: none;
+  font-family: inherit;
+  font-size: 13px;
+}
+
+.order-card-payment input:focus {
+  border-color: #5f432b;
+  box-shadow:
+    0 0 0 2px rgba(255, 255, 255, 0.25);
+}
+
+.order-card-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 9px;
 }
 
 .customer-form input:focus,

@@ -462,38 +462,48 @@ function CateringSection() {
               {selectedCatering && (
                 <div className="catering-form-summary">
 
-                  <span>
-                    Selected Catering
-                  </span>
+                  <div className="catering-summary-heading">
+                    SELECTED CATERING
+                  </div>
 
-                  <strong>
+                  <div className="catering-summary-name">
                     {selectedCatering.name}
-                  </strong>
+                  </div>
 
-                  <span>
-                    Rate: ₱
-                    {Number(
-                      selectedCatering.pricePerGuest
-                    ).toFixed(2)}{' '}
-                    / guest
-                  </span>
+                  <div className="catering-summary-details">
+
+                    <span>
+                      ₱{Number(
+                        selectedCatering.pricePerGuest
+                      ).toFixed(2)} / guest
+                    </span>
+
+                    {guests > 0 && (
+                      <span>
+                        × {guests} guests
+                      </span>
+                    )}
+
+                  </div>
 
                   {guests > 0 && (
-                    <>
-                      <span>
-                        Guests: {guests}
-                      </span>
+                    <div className="catering-summary-totals">
 
-                      <strong className="catering-estimated-total">
-                        Estimated Total: ₱
-                        {estimatedTotal.toFixed(2)}
-                      </strong>
+                      <div>
+                        <span>Estimated Total</span>
+                        <strong>
+                          ₱{estimatedTotal.toFixed(2)}
+                        </strong>
+                      </div>
 
-                      <strong className="catering-downpayment">
-                        50% Downpayment: ₱
-                        {downpayment.toFixed(2)}
-                      </strong>
-                    </>
+                      <div>
+                        <span>50% Downpayment</span>
+                        <strong>
+                          ₱{downpayment.toFixed(2)}
+                        </strong>
+                      </div>
+
+                    </div>
                   )}
 
                 </div>

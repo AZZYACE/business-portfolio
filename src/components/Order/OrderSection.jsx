@@ -449,63 +449,63 @@ function OrderSection({
               </div>
 
               {customer.paymentMethod === 'card' && (
-                <div className="order-card-payment">
+              <div className="order-card-payment">
+
+                <label>
+                  Card Number
+
+                  <input
+                    type="text"
+                    name="cardNumber"
+                    value={customer.cardNumber}
+                    onChange={handleChange}
+                    placeholder="1234 5678 9012 3456"
+                    maxLength="19"
+                  />
+                </label>
+
+                <label>
+                  Cardholder Name
+
+                  <input
+                    type="text"
+                    name="cardholderName"
+                    value={customer.cardholderName}
+                    onChange={handleChange}
+                    placeholder="Name on card"
+                  />
+                </label>
+
+                <div className="order-card-row">
 
                   <label>
-                    Card Number
+                    Expiry Date
 
                     <input
-                      type="text"
-                      name="cardNumber"
-                      value={customer.cardNumber}
+                      type="month"
+                      name="expiryDate"
+                      value={customer.expiryDate}
                       onChange={handleChange}
-                      placeholder="1234 5678 9012 3456"
-                      maxLength="19"
                     />
                   </label>
 
                   <label>
-                    Cardholder Name
+                    CVV
 
                     <input
                       type="text"
-                      name="cardholderName"
-                      value={customer.cardholderName}
+                      name="cvv"
+                      value={customer.cvv}
                       onChange={handleChange}
-                      placeholder="Name on card"
+                      placeholder="123"
+                      maxLength="4"
                     />
                   </label>
-
-                  <div className="order-card-row">
-
-                    <label>
-                      Expiry Date
-
-                      <input
-                        type="month"
-                        name="expiryDate"
-                        value={customer.expiryDate}
-                        onChange={handleChange}
-                      />
-                    </label>
-
-                    <label>
-                      CVV
-
-                      <input
-                        type="text"
-                        name="cvv"
-                        value={customer.cvv}
-                        onChange={handleChange}
-                        placeholder="123"
-                        maxLength="4"
-                      />
-                    </label>
-
-                  </div>
 
                 </div>
-              )}
+
+              </div>
+            )}
 
               <div className="order-payment-info">
 
