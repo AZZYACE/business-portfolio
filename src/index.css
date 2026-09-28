@@ -87,6 +87,19 @@ button {
   z-index: 1080;
 }
 
+.menu-toggle-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.menu-label {
+  color: #000;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
 .menu-toggle {
   order: -1;
   width: 42px;
@@ -231,6 +244,16 @@ button {
   .header-brand span {
     font-size: 15px;
     letter-spacing: 0.7px;
+  }
+
+  .menu-toggle-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  }
+
+  .menu-label {
+  font-size: 12px;
   }
 
   .menu-toggle {
