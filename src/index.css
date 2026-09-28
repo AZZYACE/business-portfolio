@@ -58,6 +58,18 @@ button {
   border-radius: 50%;
 }
 
+.menu-toggle-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.menu-label {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
 .header-brand span {
   color: white;
   font-size: 18px;
