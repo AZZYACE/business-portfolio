@@ -15,6 +15,10 @@ button {
   font-family: inherit;
 }
 
+/* =========================
+   HEADER
+========================= */
+
 .site-header {
   position: fixed;
   top: 0;
@@ -22,6 +26,7 @@ button {
   width: 100%;
   height: 65px;
   z-index: 1000;
+
   background: linear-gradient(
     90deg,
     #9e744d 0%,
@@ -30,44 +35,33 @@ button {
     #b98b5e 75%,
     #9e744d 100%
   );
+
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
 }
 
 .header-main {
   width: 100%;
   height: 65px;
+
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-between;
+
   padding: 0 25px;
   box-sizing: border-box;
 }
+
+/* =========================
+   BUSINESS NAME + LOGO
+========================= */
 
 .header-brand {
   display: flex;
   align-items: center;
   gap: 10px;
+
   flex-shrink: 0;
   margin-left: auto;
-}
-
-.header-logo {
-  width: 45px;
-  height: 45px;
-  object-fit: cover;
-  border-radius: 50%;
-}
-
-.menu-toggle-wrapper {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.menu-label {
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 1px;
 }
 
 .header-brand span {
@@ -78,19 +72,23 @@ button {
   white-space: nowrap;
 }
 
-.menu-edge-trigger {
-  position: fixed;
-  top: 65px;
-  left: 0;
-  width: 12px;
-  height: calc(100vh - 65px);
-  z-index: 1080;
+.header-logo {
+  width: 45px;
+  height: 45px;
+  object-fit: cover;
+  border-radius: 50%;
 }
+
+/* =========================
+   MENU LABEL + BUTTON
+========================= */
 
 .menu-toggle-wrapper {
   display: flex;
   align-items: center;
   gap: 8px;
+
+  flex-shrink: 0;
 }
 
 .menu-label {
@@ -98,30 +96,38 @@ button {
   font-size: 14px;
   font-weight: 600;
   letter-spacing: 1px;
+  white-space: nowrap;
 }
 
 .menu-toggle {
-  order: -1;
   width: 42px;
   height: 42px;
+
   padding: 8px;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
   gap: 5px;
+
   background: transparent;
   border: none;
   cursor: pointer;
+
   z-index: 1100;
 }
 
 .menu-toggle span {
   display: block;
+
   width: 25px;
   height: 2px;
+
   background: white;
   border-radius: 2px;
+
   transition: all 0.3s ease;
 }
 
@@ -137,16 +143,40 @@ button {
   transform: translateY(-7px) rotate(-45deg);
 }
 
+/* =========================
+   MENU EDGE TRIGGER
+========================= */
+
+.menu-edge-trigger {
+  position: fixed;
+  top: 65px;
+  left: 0;
+
+  width: 12px;
+  height: calc(100vh - 65px);
+
+  z-index: 1080;
+}
+
+/* =========================
+   MENU OVERLAY
+========================= */
+
 .menu-overlay {
   position: fixed;
   top: 65px;
   left: 0;
+
   width: 100%;
   height: calc(100vh - 65px);
+
   background: rgba(0, 0, 0, 0.45);
+
   opacity: 0;
   visibility: hidden;
+
   transition: all 0.3s ease;
+
   z-index: 999;
 }
 
@@ -155,25 +185,37 @@ button {
   visibility: visible;
 }
 
+/* =========================
+   SIDE MENU
+========================= */
+
 .menu-nav {
   position: fixed;
   top: 65px;
   left: 0;
+
   width: 280px;
   height: calc(100vh - 65px);
+
   display: flex;
   flex-direction: column;
+
   padding: 25px 0;
+
   box-sizing: border-box;
+
   background: linear-gradient(
     180deg,
     #9e744d 0%,
     #b98b5e 50%,
     #9e744d 100%
   );
+
   box-shadow: 4px 0 12px rgba(0, 0, 0, 0.2);
+
   transform: translateX(-100%);
   transition: transform 0.35s ease;
+
   z-index: 1050;
 }
 
@@ -183,16 +225,23 @@ button {
 
 .menu-nav a {
   position: relative;
+
   display: block;
   width: 100%;
+
   padding: 17px 30px;
+
   box-sizing: border-box;
+
   color: white;
   text-decoration: none;
+
   font-size: 14px;
   font-weight: 600;
   letter-spacing: 1px;
+
   text-align: left;
+
   transition:
     background 0.3s ease,
     padding-left 0.3s ease;
@@ -205,12 +254,16 @@ button {
 
 .menu-nav a::after {
   content: "";
+
   position: absolute;
   left: 30px;
   bottom: 9px;
+
   width: 0;
   height: 2px;
+
   background: white;
+
   transition: width 0.3s ease;
 }
 
@@ -222,7 +275,12 @@ button {
   background: rgba(255, 255, 255, 0.08);
 }
 
+/* =========================
+   TABLET / MOBILE
+========================= */
+
 @media (max-width: 768px) {
+
   .site-header {
     height: 60px;
   }
@@ -247,18 +305,22 @@ button {
   }
 
   .menu-toggle-wrapper {
-  display: flex;
-  align-items: center;
-  gap: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
   }
 
   .menu-label {
-  font-size: 12px;
+    font-size: 12px;
   }
 
   .menu-toggle {
     width: 40px;
     height: 40px;
+  }
+
+  .menu-toggle span {
+    width: 24px;
   }
 
   .menu-nav {
@@ -284,9 +346,19 @@ button {
   .menu-nav a::after {
     left: 25px;
   }
+
+  .menu-edge-trigger {
+    top: 60px;
+    height: calc(100vh - 60px);
+  }
 }
 
+/* =========================
+   SMALL PHONES
+========================= */
+
 @media (max-width: 480px) {
+
   .header-main {
     padding: 0 10px;
   }
@@ -304,9 +376,21 @@ button {
     font-size: 13px;
   }
 
+  .menu-toggle-wrapper {
+    gap: 5px;
+  }
+
+  .menu-label {
+    font-size: 11px;
+  }
+
   .menu-toggle {
     width: 38px;
     height: 38px;
+  }
+
+  .menu-toggle span {
+    width: 23px;
   }
 
   .menu-nav {
