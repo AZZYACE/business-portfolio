@@ -15,10 +15,6 @@ button {
   font-family: inherit;
 }
 
-/* =========================
-   HEADER
-========================= */
-
 .site-header {
   position: fixed;
   top: 0;
@@ -51,10 +47,6 @@ button {
   box-sizing: border-box;
 }
 
-/* =========================
-   BUSINESS NAME + LOGO
-========================= */
-
 .header-brand {
   display: flex;
   align-items: center;
@@ -78,10 +70,6 @@ button {
   object-fit: cover;
   border-radius: 50%;
 }
-
-/* =========================
-   MENU LABEL + BUTTON
-========================= */
 
 .menu-toggle-wrapper {
   display: flex;
@@ -143,10 +131,6 @@ button {
   transform: translateY(-7px) rotate(-45deg);
 }
 
-/* =========================
-   MENU EDGE TRIGGER
-========================= */
-
 .menu-edge-trigger {
   position: fixed;
   top: 65px;
@@ -157,10 +141,6 @@ button {
 
   z-index: 1080;
 }
-
-/* =========================
-   MENU OVERLAY
-========================= */
 
 .menu-overlay {
   position: fixed;
@@ -184,10 +164,6 @@ button {
   opacity: 1;
   visibility: visible;
 }
-
-/* =========================
-   SIDE MENU
-========================= */
 
 .menu-nav {
   position: fixed;
@@ -275,10 +251,6 @@ button {
   background: rgba(255, 255, 255, 0.08);
 }
 
-/* =========================
-   TABLET / MOBILE
-========================= */
-
 @media (max-width: 768px) {
 
   .site-header {
@@ -352,10 +324,6 @@ button {
     height: calc(100vh - 60px);
   }
 }
-
-/* =========================
-   SMALL PHONES
-========================= */
 
 @media (max-width: 480px) {
 
