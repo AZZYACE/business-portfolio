@@ -2126,8 +2126,8 @@ main {
 
 .order-view-products button {
   padding: 9px 18px;
-  background: #9e6f3d;
-  color: #ffffff;
+  background: #ffffff;
+  color: #9e6f3d;
   border: 2px solid #9e6f3d;
   border-radius: 9px;
   font-size: 12px;
@@ -2140,8 +2140,8 @@ main {
 }
 
 .order-view-products button:hover {
-  background: #ffffff;
-  color: #9e6f3d;
+  background: #9e6f3d;
+  color: #ffffff;
   transform: translateY(-1px);
 }
 
