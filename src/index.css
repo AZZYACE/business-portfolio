@@ -803,6 +803,40 @@ main {
     0 3px 8px rgba(158, 111, 61, 0.15);
 }
 
+.products-order-button {
+  display: block;
+  margin: 30px auto 0;
+  padding: 12px 30px;
+
+  border: 2px solid #9e6f3d;
+  border-radius: 8px;
+
+  background: #9e6f3d;
+  color: white;
+
+  font-size: 16px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.products-order-button:hover {
+  background: #b98b5e;
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 4px 10px rgba(158, 111, 61, 0.25);
+}
+
+.products-order-button:active {
+  transform: translateY(0);
+}
+
 .product-image {
   width: 100%;
   height: 210px;
@@ -1012,7 +1046,83 @@ main {
     drop-shadow(0 0 2px rgba(197, 155, 109, 0.35));
 }
 
+.product-carousel {
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+  gap: clamp(5px, 1vw, 20px);
+  box-sizing: border-box;
+}
+
+.product-card-list {
+  flex: 1 1 auto;
+  min-width: 0;
+  width: auto;
+  display: flex;
+  justify-content: center;
+  gap: clamp(10px, 1.5vw, 30px);
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.product-card {
+  flex: 0 0 clamp(180px, 22vw, 270px);
+  width: clamp(180px, 22vw, 270px);
+  box-sizing: border-box;
+}
+
+.product-carousel-arrow {
+  flex: 0 0 clamp(32px, 4vw, 50px);
+  width: clamp(32px, 4vw, 50px);
+  height: clamp(70px, 8vw, 100px);
+  box-sizing: border-box;
+}
+
+@media (max-width: 1000px) {
+
+  .products-section {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .product-carousel {
+    width: 100%;
+    justify-content: center;
+    gap: 5px;
+  }
+
+  .product-card-list {
+    min-width: 0;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .product-card {
+    flex: 0 0 clamp(170px, 30vw, 210px);
+    width: clamp(170px, 30vw, 210px);
+  }
+
+  .product-carousel-arrow {
+    flex: 0 0 32px;
+    width: 32px;
+    height: 80px;
+  }
+
+  .product-carousel-arrow svg {
+    width: 24px;
+    height: 42px;
+  }
+
+  .products-order-button {
+    margin-top: 25px;
+    padding: 11px 25px;
+    font-size: 15px;
+  }
+}
+
 @media (max-width: 768px) {
+
   .products-section {
     min-height: auto;
     padding: 25px 15px 45px;
@@ -1094,9 +1204,16 @@ main {
     width: 25px;
     height: 45px;
   }
+
+  .products-order-button {
+    margin-top: 25px;
+    padding: 11px 25px;
+    font-size: 14px;
+  }
 }
 
 @media (max-width: 480px) {
+
   .products-section {
     padding: 22px 10px 40px;
   }
@@ -1172,6 +1289,12 @@ main {
   .product-carousel-arrow svg {
     width: 21px;
     height: 40px;
+  }
+
+  .products-order-button {
+    margin-top: 20px;
+    padding: 10px 22px;
+    font-size: 13px;
   }
 }
 
@@ -1661,14 +1784,7 @@ main {
 .order-section {
   min-height: 92vh;
   padding: 25px 40px 50px;
-  background: linear-gradient(
-    to bottom,
-    #9e6f3d 0%,
-    #b98b5e 35%,
-    #d8c0a3 65%,
-    #ffffff 100%
-  );
-  color: #ffffff;
+  background:#ffffff;
   scroll-margin-top: 65px;
 }
 
@@ -1683,7 +1799,7 @@ main {
   font-size: 46px;
   font-weight: bold;
   line-height: 1.1;
-  color: #ffffff;
+  color: #9e6f3d;
 }
 
 .order-header h2::after {
@@ -1692,7 +1808,7 @@ main {
   width: 90%;
   height: 3px;
   margin: 14px auto 18px;
-  background: #ffffff;
+  background: #9e6f3d;
 }
 
 .order-container {

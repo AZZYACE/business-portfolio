@@ -60,6 +60,38 @@ export const productsData = [
     category: "DRINKS",
     image: "/images/products/DRINK 2 MILKTEA.jpg",
   },
+
+  {
+    id: 5,
+    name: "MEAL SET B",
+    price: "120.00",
+    category: "FOOD",
+    image: "/images/products/FOOD 4 ROASTCHICKEN.jpg",
+  },
+
+  {
+    id: 6,
+    name: "WHOLE ORANGE PIE",
+    price: "180.00",
+    category: "FOOD",
+    image: "/images/products/FOOD 3 PASTRY.jpg",
+  },
+
+  {
+    id: 8,
+    name: "JUICE FOR TWO",
+    price: "80.00",
+    category: "DRINKS",
+    image: "/images/products/DRINK 3 JUICE.jpg",
+  },
+
+  {
+    id: 9,
+    name: "COLD STEEPED TEA",
+    price: "45.00",
+    category: "DRINKS",
+    image: "/images/products/DRINK 4 TEA.jpg",
+  },
 ];
 
 export const cateringData = [
