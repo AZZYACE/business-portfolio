@@ -38,18 +38,22 @@ function MenuNav({ activeSection }) {
         onMouseEnter={openMenu}
       ></div>
 
-      <button
-        type="button"
-        className={`menu-toggle ${menuOpen ? 'open' : ''}`}
-        onClick={() => setMenuOpen(!menuOpen)}
-        onMouseEnter={openMenu}
-        aria-label={menuOpen ? 'Close menu' : 'Open menu'}
-        aria-expanded={menuOpen}
-      >
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+      <div className="menu-toggle-wrapper">
+        <span className="menu-label">MENU</span>
+
+        <button
+          type="button"
+          className={`menu-toggle ${menuOpen ? 'open' : ''}`}
+          onClick={() => setMenuOpen(!menuOpen)}
+          onMouseEnter={openMenu}
+          aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={menuOpen}
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
 
       <div
         className={`menu-overlay ${menuOpen ? 'open' : ''}`}

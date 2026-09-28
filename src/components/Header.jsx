@@ -33,13 +33,13 @@ function Header() {
     <header className="site-header">
       <div className="header-main">
         <div className="header-brand">
+          <span>SHACE CAFECARY</span>
+
           <img
             src="/images/logo/shace-logo.jpg"
             alt="SHACE CAFECARY Logo"
             className="header-logo"
           />
-
-          <span>SHACE CAFECARY</span>
         </div>
 
         <MenuNav activeSection={activeSection} />
